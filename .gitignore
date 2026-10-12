@@ -6,3 +6,5 @@ __pycache__/
 data/raw/
 data/interim/
 *.tmp
+
+docs/data_catalog.tex
