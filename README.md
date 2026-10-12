@@ -117,3 +117,28 @@ The map uses online OpenStreetMap tiles, so viewers need internet access.
 - GADM boundaries: academic use only
 
 Please cite the original providers and review their terms before redistribution or commercial use.
+
+## References
+
+1. **Meta High Resolution Settlement Layer (HRSL), children under five, 2020.** Humanitarian Data Exchange.
+   https://data.humdata.org/dataset/vietnam-high-resolution-population-density-maps-demographic-estimates
+
+2. **WorldPop age and sex structures, Vietnam, 2020.** WorldPop.
+   https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020/2020/VNM/
+
+3. **Vietnam health facilities.** Humanitarian OpenStreetMap Team and OpenStreetMap, distributed through the Humanitarian Data Exchange.
+   https://data.humdata.org/dataset/hotosm_vnm_health_facilities
+
+4. **Vietnam education facilities.** Humanitarian OpenStreetMap Team and OpenStreetMap, distributed through the Humanitarian Data Exchange.
+   https://data.humdata.org/dataset/hotosm_vnm_education_facilities
+
+5. **Vietnam road network.** OpenStreetMap extract provided by Geofabrik.
+   https://download.geofabrik.de/asia/vietnam.html
+
+6. **GADM 4.1 administrative boundaries for Vietnam, level 3.** GADM, University of California, Davis.
+   https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_VNM_3.json.zip
+
+7. **OpenStreetMap contributors.** Base-map tiles and geographic features.
+   https://www.openstreetmap.org/copyright
+
+Accessed October 2026.
