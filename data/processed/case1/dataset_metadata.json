@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-10-08T05:56:32+00:00",
+  "pipeline_version": "0.1.0",
+  "study_area": "Hanoi, Vietnam",
+  "case": "Case 1 - children under five -> vaccination sites (MVP)",
+  "outputs": {
+    "boundaries": "hanoi_boundaries.geojson",
+    "population": "population.csv",
+    "facilities": "facilities.csv",
+    "distance_matrix": "distance_matrix.csv"
+  },
+  "summary": {
+    "n_communes": 584,
+    "n_facilities": 320,
+    "total_children_under_5": 720720.35852,
+    "capacity_available": false,
+    "matrix_shape": [
+      584,
+      320
+    ]
+  },
+  "sources": {
+    "admin_boundaries": {
+      "dataset": "gadm41_VNM_3",
+      "provider": "GADM 4.1 (UC Davis)",
+      "license": "Academic use only (GADM terms)",
+      "file": "gadm41_VNM_3.json.zip",
+      "sha256": "0566f41ae178afa686150e384674bb359d5325d32f8c96189048e2eb4e2fb231"
+    },
+    "admin_boundaries_codab": {
+      "dataset": "cod-ab-vnm",
+      "provider": "OCHA (HDX)",
+      "license": "CC-BY-IGO",
+      "file": "vnm_admin_boundaries.geojson.zip"
+    },
+    "health_facilities": {
+      "dataset": "hotosm_vnm_health_facilities",
+      "provider": "HOT (HDX)",
+      "license": "ODbL 1.0 (HDX-ODC-ODbL)",
+      "file": "hotosm_vnm_health_facilities_points_geojson.zip",
+      "sha256": "79ffe8b438163124f726cc6f8dbe496f6b1af1f95babdafa21935a0a1e039dcb"
+    },
+    "education_facilities": {
+      "dataset": "hotosm_vnm_education_facilities",
+      "provider": "HOT (HDX)",
+      "license": "ODbL 1.0 (HDX-ODC-ODbL)",
+      "file": "hotosm_vnm_education_facilities_points_geojson.zip"
+    },
+    "population_under5": {
+      "dataset": "vietnam-high-resolution-population-density-maps-demographic-estimates",
+      "provider": "Meta AI for Good (via HDX)",
+      "license": "CC-BY 4.0",
+      "file": "vnm_children_under_five_2020_geotiff.zip",
+      "sha256": "4bac60bfdb14a9ff5afdbce7fbebe4e0d401e55d7972ef96f732619b55157790"
+    }
+  },
+  "population_unit": "estimated children count per pixel",
+  "population_year": 2020,
+  "distance_method": "haversine",
+  "distance_unit": "km",
+  "balanced_ot_note": "Balanced optimal transport requires sum(x) == sum(y). Facility capacities are MISSING (OSM has no capacity data), so this dataset is NOT yet ready for real-world capacity-constrained optimization. Use synthetic capacities (labeled) for method development only.",
+  "capacity_status": "missing - no verified capacity source integrated yet"
+}

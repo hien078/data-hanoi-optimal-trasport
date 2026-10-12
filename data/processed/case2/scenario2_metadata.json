@@ -1,0 +1,55 @@
+{
+  "generated_at_utc": "2026-10-09T06:22:05+00:00",
+  "case": "Scenario 2 - children aged 5 to 14 and education facilities",
+  "sample": {
+    "size": 10000,
+    "seed": 42,
+    "method": "cell probability proportional to count; uniform point inside selected cell; reject outside Hanoi"
+  },
+  "summary": {
+    "hanoi_grid_total": 1041039.6144911898,
+    "education_facilities": 332
+  },
+  "outputs": {
+    "population_raster": "scenario2_population_5_14_hanoi.tif",
+    "sampled_children": "scenario2_sampled_children.geojson",
+    "education_facilities": "scenario2_education_facilities.csv"
+  },
+  "sources": {
+    "worldpop": {
+      "year": 2020,
+      "resolution": "approximately 100 m",
+      "files": [
+        {
+          "name": "vnm_f_5_2020.tif",
+          "sha256": "4c6fe672edb885efb14ab1d44b887e3002842100afbccd5566305e088bcc078f"
+        },
+        {
+          "name": "vnm_f_10_2020.tif",
+          "sha256": "dca308d6f0c860e09dbcf17a949587d45ac4d65cf1c3b24615273b4faba76561"
+        },
+        {
+          "name": "vnm_m_5_2020.tif",
+          "sha256": "a0bb6c4cad8e1d3c1ed2f12493a767c57f9542bbcfefd923167fcfc657f0f90e"
+        },
+        {
+          "name": "vnm_m_10_2020.tif",
+          "sha256": "ad94221847f567d55d6a5ad2f95640995b39ac448a45a366b4c16f5f0d510ea7"
+        }
+      ]
+    },
+    "education_facilities": {
+      "provider": "HOT/OSM",
+      "license": "ODbL 1.0"
+    },
+    "boundaries": {
+      "provider": "GADM 4.1",
+      "license": "academic use only"
+    }
+  },
+  "limitations": [
+    "OSM school capacities are unavailable; capacity remains missing.",
+    "Samples are Monte Carlo draws from modeled raster counts, not observed individual children.",
+    "GADM boundary vintage differs from WorldPop 2020."
+  ]
+}

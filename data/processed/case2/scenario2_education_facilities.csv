@@ -1,0 +1,333 @@
+facility_id,facility_name,facility_type,latitude,longitude,capacity,capacity_source,source
+6184420091,Trường Tiểu học Nghĩa Hương,school,20.9724351,105.6153764,,missing,HOT OSM education facilities export (ODbL) via HDX
+4849694923,Trường Tiểu Học An Thượng B,school,20.9846039,105.7080898,,missing,HOT OSM education facilities export (ODbL) via HDX
+449627267,Trường Trung học cơ sở Lương Thế Vinh,school,20.9933127,105.8146824,,missing,HOT OSM education facilities export (ODbL) via HDX
+6924044098,Trung Tâm Tiếng Anh Apax,school,21.0645486,105.911575,,missing,HOT OSM education facilities export (ODbL) via HDX
+10980030548,Trường Trung cấp Y - Dược Cộng đồng Hà Nội,school,21.1119006,105.832821,,missing,HOT OSM education facilities export (ODbL) via HDX
+6184420092,Trung học cơ sở Nghĩa Hương,school,20.9731091,105.6169237,,missing,HOT OSM education facilities export (ODbL) via HDX
+2136318889,Trường Quốc Tế Morning Star,kindergarten,21.0675757,105.8206957,,missing,HOT OSM education facilities export (ODbL) via HDX
+4886771716,Trường Mầm non Mỹ Đình 1,kindergarten,21.0220567,105.7751898,,missing,HOT OSM education facilities export (ODbL) via HDX
+5758042025,Trung Tâm FabLab USTH,school,21.0481579,105.8013581,,missing,HOT OSM education facilities export (ODbL) via HDX
+5570980322,,school,21.2295745,105.8496026,,missing,HOT OSM education facilities export (ODbL) via HDX
+6679994487,,school,20.9673538,105.8684594,,missing,HOT OSM education facilities export (ODbL) via HDX
+6703692087,,school,21.0091683,105.8065419,,missing,HOT OSM education facilities export (ODbL) via HDX
+6840536785,,kindergarten,21.0295452,105.7663588,,missing,HOT OSM education facilities export (ODbL) via HDX
+8447602009,V34-Lớp mẫu giáo độc lập,kindergarten,21.0652565,105.7793815,,missing,HOT OSM education facilities export (ODbL) via HDX
+11563520040,Mầm non Nắng Ban Mai,kindergarten,21.0451889,105.7854091,,missing,HOT OSM education facilities export (ODbL) via HDX
+8823695658,Trường Đại học Khoa học và Công nghệ Hà Nội,university,21.048152,105.8011776,,missing,HOT OSM education facilities export (ODbL) via HDX
+8823695659,Học Viện Khoa Học Và Công Nghệ,university,21.0481017,105.8012606,,missing,HOT OSM education facilities export (ODbL) via HDX
+9587000790,Trường Trung học cơ sở Phan Đình Giót,school,21.0020393,105.8090381,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205913,Trường Trung học cơ sở Phúc Hòa,school,21.1090263,105.554218,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593210625,Trường Trung học cơ sở Cẩm Yên,school,21.0869391,105.5423717,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593210626,Trường Trung học cơ sở Ngọc Liệp,school,20.9963204,105.5951111,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593210638,Trường Trung học cơ sở Vân Hà,school,21.1502071,105.6204054,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593210642,Trường Trung học cơ sở Quốc Oai,school,20.9950499,105.6459336,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593213817,Trường Trung học cơ sở Liên Mạc B,school,21.1804891,105.6630964,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593243320,Trường Trung học cơ sở ĐạI Thịnh A,school,21.1742956,105.7323581,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593243322,Trường Trung học cơ sở Nam Phong,school,20.7577059,105.9252482,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593243325,Trường Trung học cơ sở Sơn Công,school,20.7549569,105.7173545,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258937,Trường Trung học cơ sở Tự Lập,school,21.2180183,105.6555814,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258939,Trường Trung học cơ sở Yên Sơn,school,21.0053205,105.6608902,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258940,Trường Trung học cơ sở Đông Yên,school,20.9316968,105.6014942,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264117,Trường Trung học cơ sở Hiền Ninh,school,21.247329,105.7900505,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264120,Trường Trung học cơ sở Hương Sơn,school,20.6125262,105.7885173,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264125,Trường Trung học cơ sở Hoà Lâm,school,20.685289,105.810973,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264126,Trường Trung học cơ sở Cự Khê,school,20.9209353,105.7903957,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264127,Trường Trung học cơ sở Thư Phú,school,20.8604602,105.906146,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593268461,Trường Trung học cơ sở Xuân Thu,school,21.1951001,105.8942978,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593268462,Trường Trung học cơ sở Kim Đường,school,20.6697248,105.8662097,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381054,Trường Trung học cơ sở Tân Dân - Phú Xuyên,school,20.7423908,105.8701668,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381056,Trường Trung học cơ sở Tuyết Nghĩa,school,20.9691396,105.5905001,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381062,Trường Trung học cơ sở Văn Hoàng,school,20.7738575,105.8499794,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593386644,Trường Trung học cơ sở Chương Dương Thường Tín,school,20.8462609,105.9097375,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593474590,Trường Trung học cơ sở Quang Trung - Phú Xuyên,school,20.7606705,105.8837029,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207318,Trường Trung học cơ sở Phượng Cách,school,21.0128064,105.661131,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207319,Trường Trung học cơ sở Xuân Phú,school,21.1450091,105.5808111,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207321,Trường Trung học cơ sở Yên Trung,school,21.0011075,105.4216912,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207325,Trường Trung học cơ sở Tam Thuấn,school,21.0996924,105.6231537,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593248613,Trường Trung học cơ sở Châu Can,school,20.6884518,105.8971981,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593248614,Trường Trung học cơ sở Tri Trung,school,20.7777434,105.8289754,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258917,Trường Trung học cơ sở Kim An,school,20.8496043,105.7576081,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593268464,Trường Trung học cơ sở Hồng Quang,school,20.6232216,105.7984588,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593275046,Trương Trung học cơ sở Đỗ Động,school,20.8451165,105.7832103,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593275047,Trường Trung học cơ sở Hoàng Kim,school,21.1701541,105.686468,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334633,Trường Trung học cơ sở Khai Thái,school,20.7231669,105.9583953,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334634,Trường Trung học cơ sở Chuyên Mỹ,school,20.7358527,105.8697523,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593474595,Trường Trung học cơ sở Cao Thành,school,20.7648116,105.7352232,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503718,Trường Trung học cơ sở Sơn Hà,school,20.7410367,105.8893817,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503719,Trường Trung học cơ sở Bình Minh,school,20.895559,105.7660825,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503720,Trường Trung học cơ sở Hòa Nam,school,20.6812229,105.758913,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503721,Trường Trung học cơ sở Vân Từ,school,20.7159808,105.896063,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503722,Trường Trung học cơ sở Minh Cường,school,20.7676486,105.9033509,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503727,Trường Trung học cơ sở Tự Nhiên,school,20.8594302,105.916156,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503728,Trường Trung học cơ sở Vạn Điểm,school,20.7770024,105.9087846,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503729,Trường Trung học cơ sở Vạn Thái,school,20.7060288,105.7661888,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593515309,Trường Trung học cơ sở Đồng Tân,school,20.7123322,105.8360582,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593515313,Trường Trung học cơ sở Tam Hiệp,school,20.9502032,105.8304206,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593533119,Trường Trung học cơ sở Tráng Việt,school,21.1490993,105.7409966,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623735,Trường Trung học cơ sở Hợp Thanh,school,20.6694247,105.7046601,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623738,Trường Trung học cơ sở Hồng Dương,school,20.7959441,105.7837649,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623741,Trường Trung học cơ sở ĐạI Hưng,school,20.6721191,105.7637165,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662290,Trường Trung học cơ sở Trung Hòa - Chương Mỹ,school,20.9061512,105.642511,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662298,Trường Trung học cơ sở Sơn Đông,school,21.0810149,105.5090267,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593853989,Trường Trung học cơ sở Đông Xuân,school,20.9615714,105.5260765,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862339,Trường Trung học cơ sở Ninh Sở,school,20.8983878,105.8868896,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862340,Trường Trung học cơ sở Đức Hòa,school,21.2299403,105.8764094,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862345,Trường Trung học cơ sở Kim Lũ,school,21.2054166,105.8916867,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887408,Trường Trung học cơ sở Dân Hoà,school,20.815862,105.7777016,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887410,Trường Trung học cơ sở ĐạI Thành,school,20.9652468,105.7083767,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887411,Trường Trung học cơ sở Hòa Phú,school,20.6729455,105.7797599,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593958094,Trường Trung học cơ sở Hòa Xá,school,20.6946909,105.7562532,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593958108,Trường Trung học cơ sở Đồng Tiến,school,20.7374572,105.7420573,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258922,Trường Trung học cơ sở Quất Động,school,20.8428767,105.8741909,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258926,Trường Trung học cơ sở Bình Phú,school,21.0241425,105.6068301,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258927,Trường Trung học cơ sở Tân Hoà,school,20.9695372,105.6744848,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258934,Trường Trung học cơ sở Vạn Yên,school,21.2011735,105.6265265,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258935,Trường Trung học cơ sở Hòa Thạnh,school,20.9462179,105.5738941,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593275054,Trường Trung học cơ sở Hà Hồi,school,20.8681462,105.8740491,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334636,Trường Trung học cơ sở Trưng Vương - Mê Linh,school,21.177804,105.7268947,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334637,Trường Trung học cơ sở Hồng Thái,school,20.7619366,105.9554049,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593533120,Trường Trung học cơ sở Thị Trấn Thường Tín,school,20.8706993,105.8657226,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593533123,Trường Trung học cơ sở ĐạI Thắng,school,20.7814135,105.8824468,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593560394,Trường Trung học cơ sở Lưu Hoàng,school,20.6482088,105.8046617,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593574430,Trường Trung học cơ sở Tô Hiến Thành,school,21.0182899,105.8274831,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662303,Trường Trung học cơ sở Thạch Hòa,school,20.9838307,105.5286359,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862349,Trường Trung học cơ sở Viên Nội,school,20.7922734,105.7152179,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862351,Trường Trung học cơ sở Phương Trung,school,20.8272193,105.7701558,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887412,Trường Trung học cơ sở Kim Thư,school,20.839722,105.7617391,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887413,Trường Trung học cơ sở Tân Dân,school,21.2432096,105.7412949,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887414,Trường Trung học cơ sở Liên Châu,school,20.816911,105.8246975,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887416,Trường Trung học cơ sở Tam Hưng,school,20.8810795,105.7850398,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593975504,Trường Trung học cơ sở Trường Thịnh,school,20.766751,105.7670327,,missing,HOT OSM education facilities export (ODbL) via HDX
+4280717795,Du Học Và Học Tiếng Đức GFS,school,21.0125914,105.863299,,missing,HOT OSM education facilities export (ODbL) via HDX
+4755943818,,school,21.0336787,105.8553045,,missing,HOT OSM education facilities export (ODbL) via HDX
+4900741322,Hội Kiến Trúc Sư Việt Nam,school,21.0161698,105.8584514,,missing,HOT OSM education facilities export (ODbL) via HDX
+5398016422,Tiếng Trung Cầm Xu - cs2,school,21.0127227,105.818705,,missing,HOT OSM education facilities export (ODbL) via HDX
+998227693,,school,21.0323114,105.8491414,,missing,HOT OSM education facilities export (ODbL) via HDX
+4631390666,Trường Mầm Non Hoa Thuỷ Tiên,kindergarten,21.0126114,105.8642926,,missing,HOT OSM education facilities export (ODbL) via HDX
+4631390668,Trường Mầm Non Thăng Long,kindergarten,21.0120681,105.8653655,,missing,HOT OSM education facilities export (ODbL) via HDX
+5662972422,Trường mầm non Ngôi sao sáng,kindergarten,21.0517639,105.8382808,,missing,HOT OSM education facilities export (ODbL) via HDX
+9931488173,,kindergarten,21.0649262,105.8293526,,missing,HOT OSM education facilities export (ODbL) via HDX
+9931539949,,kindergarten,21.063485,105.8316422,,missing,HOT OSM education facilities export (ODbL) via HDX
+11082608292,Trường Mẫu giáo Măng Non,kindergarten,21.0211868,105.856883,,missing,HOT OSM education facilities export (ODbL) via HDX
+12558502901,,kindergarten,21.0575046,105.8384527,,missing,HOT OSM education facilities export (ODbL) via HDX
+9976440313,Trường Mẫu giáo Thủy Tiên,kindergarten,21.010763,105.8328549,,missing,HOT OSM education facilities export (ODbL) via HDX
+10621408641,Vinschool Nguyễn Chí Thanh,school,21.0233951,105.8089129,,missing,HOT OSM education facilities export (ODbL) via HDX
+442033041,Học Viện Không Quân,school,21.000667,105.827072,,missing,HOT OSM education facilities export (ODbL) via HDX
+5398016421,Tiếng Trung Cầm Xu - cs1,school,21.0286141,105.8097903,,missing,HOT OSM education facilities export (ODbL) via HDX
+4484956794,,school,21.003661,105.8153673,,missing,HOT OSM education facilities export (ODbL) via HDX
+4486357290,,school,21.0197872,105.8162135,,missing,HOT OSM education facilities export (ODbL) via HDX
+4505332089,,school,21.0269606,105.8178058,,missing,HOT OSM education facilities export (ODbL) via HDX
+4531553592,Trung Tâm Fablab Hanoi,school,21.0237687,105.830619,,missing,HOT OSM education facilities export (ODbL) via HDX
+12189275702,Vườn Trí Tuệ,kindergarten,21.0340701,105.8444116,,missing,HOT OSM education facilities export (ODbL) via HDX
+3477864693,Trường Mầm non TT Kid's House,kindergarten,21.0080664,105.8120138,,missing,HOT OSM education facilities export (ODbL) via HDX
+4066099003,Trường Mầm Non Magic Star,kindergarten,21.0145449,105.8288002,,missing,HOT OSM education facilities export (ODbL) via HDX
+9931536200,,kindergarten,21.0276819,105.8361233,,missing,HOT OSM education facilities export (ODbL) via HDX
+444655908,Khoa Quốc Tế Đại Học Quốc Gia,university,21.0011583,105.8030313,,missing,HOT OSM education facilities export (ODbL) via HDX
+6557784984,Đại Học Nguyễn Trãi,university,21.0361826,105.8159056,,missing,HOT OSM education facilities export (ODbL) via HDX
+2093083282,Đại học RMIT - Cơ sở Hà Nội,university,21.0291095,105.8115454,,missing,HOT OSM education facilities export (ODbL) via HDX
+11429136742,Trường Trung học phổ thông Nguyễn Bỉnh Khiêm,school,20.7763227,105.8283176,,missing,HOT OSM education facilities export (ODbL) via HDX
+11395688199,Little Friends 5 Preschool,kindergarten,21.0052203,105.7338429,,missing,HOT OSM education facilities export (ODbL) via HDX
+11395688304,Mầm non Edison,kindergarten,21.0076518,105.7309521,,missing,HOT OSM education facilities export (ODbL) via HDX
+11395688197,Trường Mầm non Lapland Hà Nội,kindergarten,21.005128,105.73304,,missing,HOT OSM education facilities export (ODbL) via HDX
+11395688198,Finland Preschool,kindergarten,21.0051332,105.7337171,,missing,HOT OSM education facilities export (ODbL) via HDX
+11482335148,Trường Mầm non Sao Sáng,kindergarten,21.012547,105.8492757,,missing,HOT OSM education facilities export (ODbL) via HDX
+11571556933,Mầm non Happy School,kindergarten,21.0433003,105.7854653,,missing,HOT OSM education facilities export (ODbL) via HDX
+11609443061,Đại học Công nghệ,university,21.0382738,105.7824572,,missing,HOT OSM education facilities export (ODbL) via HDX
+4493605991,,school,21.0053516,105.8027174,,missing,HOT OSM education facilities export (ODbL) via HDX
+4493605992,,school,21.0070765,105.8008904,,missing,HOT OSM education facilities export (ODbL) via HDX
+4504307489,,school,21.0100683,105.8052983,,missing,HOT OSM education facilities export (ODbL) via HDX
+11625397941,Winston International School,kindergarten,21.0143514,105.8508573,,missing,HOT OSM education facilities export (ODbL) via HDX
+11609443059,Đại học Kinh tế,university,21.0379689,105.7828716,,missing,HOT OSM education facilities export (ODbL) via HDX
+11609590538,Trường Đại học Y Dược,university,21.040311,105.7816961,,missing,HOT OSM education facilities export (ODbL) via HDX
+11609443060,Đại học Luật,university,21.0378978,105.7824482,,missing,HOT OSM education facilities export (ODbL) via HDX
+11927269258,Trường Tiểu học & Trung học cơ sở Hà Nội - Thăng Long,school,20.9614938,105.7898178,,missing,HOT OSM education facilities export (ODbL) via HDX
+11927399098,Trường Trung học phổ thông Xa La,school,20.9609462,105.789599,,missing,HOT OSM education facilities export (ODbL) via HDX
+11971027059,Trường Trung học cơ sở & Trung học phổ thông Phenikaa,school,21.0482523,105.7301713,,missing,HOT OSM education facilities export (ODbL) via HDX
+11974253905,Trường Mầm non Việt Mỹ,kindergarten,21.0555186,105.7798241,,missing,HOT OSM education facilities export (ODbL) via HDX
+11943714035,Trường Đại học Việt Nhật (VJU),university,21.0328695,105.7624123,,missing,HOT OSM education facilities export (ODbL) via HDX
+12067202478,Trường Mầm non Phùng Khoang,kindergarten,20.9891467,105.7913264,,missing,HOT OSM education facilities export (ODbL) via HDX
+12065631392,Amy School,kindergarten,21.010206,105.8024296,,missing,HOT OSM education facilities export (ODbL) via HDX
+9803314653,Trường Trung cấp Quang Trung,school,21.0366539,105.903684,,missing,HOT OSM education facilities export (ODbL) via HDX
+4388714491,Trường Mầm Non Hoa Sữa,school,21.036675,105.9102581,,missing,HOT OSM education facilities export (ODbL) via HDX
+7614039485,Trung Tâm Giáo Dục Nghề Nghiệp - Giáo Dục Thường Xuyên. Quận Long Biên,school,21.0568819,105.898202,,missing,HOT OSM education facilities export (ODbL) via HDX
+5485875444,Trường Mầm Non Ngôi Sao Xanh,kindergarten,21.0364282,105.9058378,,missing,HOT OSM education facilities export (ODbL) via HDX
+12508979547,Lớp Mầm non Cuộc sống xanh (Green Life Preschool),kindergarten,21.0857189,105.7896007,,missing,HOT OSM education facilities export (ODbL) via HDX
+6579800157,Trường Mầm non Nắng Mai,kindergarten,21.0388525,105.8484596,,missing,HOT OSM education facilities export (ODbL) via HDX
+6666528207,Z Kids Preschool,kindergarten,21.0652911,105.8799179,,missing,HOT OSM education facilities export (ODbL) via HDX
+12582267437,Lớp mầm non độc lập tư thục Việt Mỹ (American Montessori School),kindergarten,21.0358499,105.7849025,,missing,HOT OSM education facilities export (ODbL) via HDX
+12655533120,Lớp mầm non độc lập Vườn Hồng,kindergarten,20.9932943,105.7783512,,missing,HOT OSM education facilities export (ODbL) via HDX
+12513712433,Trường Trung học phổ thông Đinh Tiên Hoàng - Ba Đình (Phố Chương Dương Độ),school,21.0292067,105.859018,,missing,HOT OSM education facilities export (ODbL) via HDX
+11659472567,Mind X Technology School,school,21.0408003,105.8689592,,missing,HOT OSM education facilities export (ODbL) via HDX
+4172467091,Trung Tâm Tiếng Anh Apax,school,21.0477596,105.8763271,,missing,HOT OSM education facilities export (ODbL) via HDX
+12552981505,Trường Trung học phổ thông Anhxtanh Hà Nội,school,21.0073837,105.8228789,,missing,HOT OSM education facilities export (ODbL) via HDX
+12627838504,Trường Trung học cơ sở - Trung học phổ thông Hà Thành,school,21.0513286,105.7819935,,missing,HOT OSM education facilities export (ODbL) via HDX
+12627388275,Trường Cao đẳng nghề Nguyễn Trãi,school,21.0515245,105.7821056,,missing,HOT OSM education facilities export (ODbL) via HDX
+12638263913,Lớp mẫu giáo độc lập Lá Phong Xanh,school,21.0654974,105.8015635,,missing,HOT OSM education facilities export (ODbL) via HDX
+12645416780,Trường Cao Đẳng Kinh Tế Công Nghệ Hà Nội,school,21.0563409,105.7470725,,missing,HOT OSM education facilities export (ODbL) via HDX
+12573506643,Tòa E3 - Đại học Công Nghệ,university,21.0382596,105.7826979,,missing,HOT OSM education facilities export (ODbL) via HDX
+12787454663,Trường Trung học phổ thông Lê Hồng Phong,school,20.984948,105.7756223,,missing,HOT OSM education facilities export (ODbL) via HDX
+12768042019,Trường Cao đẳng Ngoại ngữ và Công nghệ Hà Nội (Cơ sở 2),college,21.0446809,105.7417518,,missing,HOT OSM education facilities export (ODbL) via HDX
+12836590802,Trường Mầm non Búp Sen Hồng,kindergarten,20.9784317,105.7819623,,missing,HOT OSM education facilities export (ODbL) via HDX
+12855851469,Trường Mầm non Lômônôxốp,kindergarten,21.0152071,105.7805396,,missing,HOT OSM education facilities export (ODbL) via HDX
+12857790361,Casa Dei Piccioni,kindergarten,20.9935153,105.7921977,,missing,HOT OSM education facilities export (ODbL) via HDX
+12890263429,Trường Mầm non Shining Star,kindergarten,20.9857985,105.7777515,,missing,HOT OSM education facilities export (ODbL) via HDX
+12846325975,Trường Tiểu học Tam Hiệp,school,20.9501409,105.8308462,,missing,HOT OSM education facilities export (ODbL) via HDX
+12873445643,Phổ thông Cao đẳng – FPT Polytechnic Hà Nội (Cơ sở 1),school,21.0380687,105.7466523,,missing,HOT OSM education facilities export (ODbL) via HDX
+12873469692,Phổ thông Cao đẳng – FPT Polytechnic Hà Nội (Cơ sở 3),school,21.0412566,105.751144,,missing,HOT OSM education facilities export (ODbL) via HDX
+12873469697,Phổ thông Cao đẳng – FPT Polytechnic Hà Nội (Cơ sở 2),school,21.0365344,105.903586,,missing,HOT OSM education facilities export (ODbL) via HDX
+12873469698,Phổ thông Cao đẳng – FPT Polytechnic Hà Nội (Cơ sở 4),school,20.9614029,105.7633591,,missing,HOT OSM education facilities export (ODbL) via HDX
+12827765013,Trường Cao đẳng Y dược và Kinh tế Công nghệ,college,21.0530608,105.7845722,,missing,HOT OSM education facilities export (ODbL) via HDX
+12912125108,Trường Mầm non Mỗ Lao (cơ sở 2),kindergarten,20.9818327,105.784364,,missing,HOT OSM education facilities export (ODbL) via HDX
+12913952632,Trường Mầm non Mỗ Lao (cơ sở 1),kindergarten,20.9792099,105.784649,,missing,HOT OSM education facilities export (ODbL) via HDX
+12905142196,Trường Trung học phổ thông Việt Hoàng,school,21.0642238,105.722701,,missing,HOT OSM education facilities export (ODbL) via HDX
+12905277801,Trường Tiểu học và Trung học cơ sở Unigo,school,21.0646262,105.7228753,,missing,HOT OSM education facilities export (ODbL) via HDX
+12595245152,Hệ thống giáo dục May Academy,school,20.9870173,105.8302519,,missing,HOT OSM education facilities export (ODbL) via HDX
+4695677491,,school,21.1965003,105.7726152,,missing,HOT OSM education facilities export (ODbL) via HDX
+2136318869,QSI School,kindergarten,21.0662671,105.8234341,,missing,HOT OSM education facilities export (ODbL) via HDX
+4183538421,Vietnamese class,school,21.0386664,105.8222128,,missing,HOT OSM education facilities export (ODbL) via HDX
+10980030602,AMIS Hoàng Quốc Việt,school,21.0519384,105.7836371,,missing,HOT OSM education facilities export (ODbL) via HDX
+9587375641,Trường Song ngữ Quốc tế Horizon,school,21.0663701,105.8215935,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334627,Trường Song Ngữ Quốc Tế Hanoi Academy,school,21.0736683,105.8029221,,missing,HOT OSM education facilities export (ODbL) via HDX
+12035280084,Sakura Montessori,kindergarten,21.0144088,105.7823979,,missing,HOT OSM education facilities export (ODbL) via HDX
+12662434904,Lớp mầm non độc lập Lá Phong Xanh,kindergarten,21.0176476,105.7907472,,missing,HOT OSM education facilities export (ODbL) via HDX
+12213825778,Trường mầm non Mễ Trì,kindergarten,21.0050564,105.7775958,,missing,HOT OSM education facilities export (ODbL) via HDX
+4941327921,Trường Mầm Non Hoạ Mi,kindergarten,20.9529434,105.8351471,,missing,HOT OSM education facilities export (ODbL) via HDX
+13072684318,Trường Cao đẳng Y Hà Nội (cơ sở Mỹ Đình),school,21.0315303,105.7730291,,missing,HOT OSM education facilities export (ODbL) via HDX
+13072684319,Trường Cao đẳng Y Hà Nội (trụ sở chính),school,20.986401,105.8132964,,missing,HOT OSM education facilities export (ODbL) via HDX
+6652529907,,school,20.9634078,105.8278674,,missing,HOT OSM education facilities export (ODbL) via HDX
+12203469051,Trường Cao đẳng Đại Việt,college,21.0311974,105.7628725,,missing,HOT OSM education facilities export (ODbL) via HDX
+10893013859,Trường Đại học Giáo dục - ĐHQGHN,university,20.991372,105.7974652,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593958093,Trường Mầm Non Hòa Xá,kindergarten,20.6933537,105.7551511,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381050,Trường Tiểu Học Kim Bài,school,20.8541499,105.7622413,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593958095,Trường Tiểu Học Hòa Xá,school,20.693807,105.7554593,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593268467,Trường mầm non Minh Trí,kindergarten,21.269575,105.7493497,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593243321,Trường Mầm Non Nam Phong,kindergarten,20.7543026,105.9211944,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593503723,Trường Tiểu Học Minh Cường,school,20.767801,105.9038595,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334629,Trường Tiểu Học Hòa Nam,school,20.6832493,105.7588116,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207326,Trường Tiểu Học Ngọc Tảo,school,21.0929001,105.6002498,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593207328,Trường Tiểu học Trường Yên,school,20.9172394,105.6480531,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258918,Trường Tiểu Học Kim An,school,20.8500061,105.7579175,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285983,Trường Nội Trú IVS Phía Bắc,school,20.8579258,105.7656571,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205905,Trường Tiểu Học Hiệp Thuận,school,21.0735783,105.6327241,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205907,Trường Tiểu học Trần Phú - Chương Mỹ,school,20.8327881,105.6727844,,missing,HOT OSM education facilities export (ODbL) via HDX
+5296714078,Trường Mẫu Giáo Vân Canh,kindergarten,21.0357119,105.7311405,,missing,HOT OSM education facilities export (ODbL) via HDX
+6516239586,Trần Quốc Toản,kindergarten,20.9800852,105.7485758,,missing,HOT OSM education facilities export (ODbL) via HDX
+11389939281,Red Bean Kindergarten,kindergarten,21.0080335,105.7321817,,missing,HOT OSM education facilities export (ODbL) via HDX
+11395688196,Mầm non VietHome,kindergarten,21.0052498,105.7331109,,missing,HOT OSM education facilities export (ODbL) via HDX
+12552961450,Trường Mầm non HappyTime - Cơ sở 2,kindergarten,20.9776971,105.7590549,,missing,HOT OSM education facilities export (ODbL) via HDX
+12597080227,Trường Mầm non Tây Tựu - Cơ sở 3,kindergarten,21.067468,105.7354806,,missing,HOT OSM education facilities export (ODbL) via HDX
+11927404782,Trường Mầm non Hà Nội - Thăng Long,kindergarten,20.9627865,105.7904982,,missing,HOT OSM education facilities export (ODbL) via HDX
+12655589944,Lớp mầm non tư thục Xứ sở thần tiên,kindergarten,20.9934732,105.7784399,,missing,HOT OSM education facilities export (ODbL) via HDX
+12786296775,Lớp mầm non độc lập Khai Minh Đức,kindergarten,20.9826387,105.7546334,,missing,HOT OSM education facilities export (ODbL) via HDX
+4788621925,Trường Mầm Non Mậu Lương Cơ Sở 1,school,20.955831,105.7955038,,missing,HOT OSM education facilities export (ODbL) via HDX
+7467256832,Trung Tâm Đào Tạo Quốc Tế CIE-PTIT,school,20.9807057,105.7874957,,missing,HOT OSM education facilities export (ODbL) via HDX
+12508564054,Trường Cao đẳng Y Hà Nội (cơ sở Phú Thứ),school,21.0030745,105.7507524,,missing,HOT OSM education facilities export (ODbL) via HDX
+13114068728,Khu Giảng đường 4 - Trường Đại học Công nghệ - Đại học Quốc gia Hà Nội,school,21.0409077,105.7510128,,missing,HOT OSM education facilities export (ODbL) via HDX
+13128218496,Trường Mầm non Nắng Xuân,school,20.9970469,105.7504257,,missing,HOT OSM education facilities export (ODbL) via HDX
+9587108041,Trường Tiểu Học Kiến Hưng,school,20.9593241,105.7892698,,missing,HOT OSM education facilities export (ODbL) via HDX
+9875849047,Học viện Dân tộc,university,21.0161557,105.7454681,,missing,HOT OSM education facilities export (ODbL) via HDX
+10048614528,Trường Đại học Công nghệ Đông Á,university,21.0400027,105.741891,,missing,HOT OSM education facilities export (ODbL) via HDX
+13058303799,Trường Đại học CMC (Cơ sở 2),university,20.9834045,105.7726713,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623734,Cao đẳng FPT Polytechnic,college,21.0380074,105.7468965,,missing,HOT OSM education facilities export (ODbL) via HDX
+12015164552,Trường Trung cấp Thủ đô,college,21.0314507,105.762243,,missing,HOT OSM education facilities export (ODbL) via HDX
+12768043526,Trường Cao đẳng Ngoại ngữ và Công nghệ Hà Nội (Cơ sở 1),college,21.0443049,105.7528429,,missing,HOT OSM education facilities export (ODbL) via HDX
+13282395201,Thực Nghiệm,kindergarten,21.078093,105.814401,,missing,HOT OSM education facilities export (ODbL) via HDX
+4524261790,,school,21.014042,105.9364028,,missing,HOT OSM education facilities export (ODbL) via HDX
+12965560710,Trường Đại Học VinUni,university,20.9870474,105.9434573,,missing,HOT OSM education facilities export (ODbL) via HDX
+13071951997,Trường tiểu học Thạch Đà B,school,21.1657953,105.6729008,,missing,HOT OSM education facilities export (ODbL) via HDX
+13071951996,Trường mầm non Thạch Đà B,school,21.1661555,105.6712271,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662304,Trường Tiểu Học Thạch Hòa,school,20.9830935,105.5289264,,missing,HOT OSM education facilities export (ODbL) via HDX
+13302249601,Học viện Thiết kế và Thời trang London,college,21.0671359,105.8209737,,missing,HOT OSM education facilities export (ODbL) via HDX
+1868388078,Trường Trung học cơ sở Trưng Vương,school,21.2135023,105.7183857,,missing,HOT OSM education facilities export (ODbL) via HDX
+1868388099,Trường Trung học cơ sở Thanh Lâm A,school,21.2063388,105.7184716,,missing,HOT OSM education facilities export (ODbL) via HDX
+3885756534,Trường Trung học cơ sở Minh Trí,school,21.2700814,105.7498147,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593243319,Trường Trung học cơ sở Quang Minh,school,21.202269,105.7716428,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285966,Trường Trung học cơ sở Đại Yên,school,20.9016538,105.6974223,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285967,Trường Trung học cơ sở Thị Trấn Phú Xuyên,school,20.7440581,105.9090185,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285968,Trường Trung học cơ sở Trần Phú - Phú Xuyên,school,20.7447054,105.9111869,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285973,Trường Trung học cơ sở Đại Xuyên,school,20.6847346,105.9270467,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285977,Trường Trung học cơ sở Nam Triều,school,20.7484015,105.9316443,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285979,Trường Trung học cơ sở Hợp Tiến,school,20.686848,105.6990683,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285980,Trường Trung học cơ sở Nghiêm Xuyên,school,20.8111691,105.8562015,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381057,Trường Trung học cơ sở Dị Nậu,school,21.0524228,105.627116,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381058,Trường Trung học cơ sở Tiến Xuân,school,20.9659976,105.4921398,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623744,Trường Trung học cơ sở Xuy Xá,school,20.7141264,105.7373728,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662287,Trường Trung học cơ sở Hoàng Long,school,20.7590961,105.8315263,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662288,Trường Trung học cơ sở Khánh Hà,school,20.891206,105.8248781,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593853990,Trường Trung học cơ sở Phú Cát,school,20.9713245,105.5657088,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887404,Trường Trung học cơ sở Cao Dương,school,20.8116832,105.7615899,,missing,HOT OSM education facilities export (ODbL) via HDX
+9803314654,Trường Trung học phổ thông Tây Sơn,school,21.0371908,105.9039035,,missing,HOT OSM education facilities export (ODbL) via HDX
+10678143866,Trường Trung học phổ thông FPT,school,21.0133844,105.5234537,,missing,HOT OSM education facilities export (ODbL) via HDX
+10833318887,Trường Trung học phổ thông Phan Chu Trinh,school,21.079464,105.819008,,missing,HOT OSM education facilities export (ODbL) via HDX
+10979898092,Trường Trung học phổ thông Tô Hiệu - Gia Lâm,school,21.0179015,105.9646784,,missing,HOT OSM education facilities export (ODbL) via HDX
+10979898123,Trường Trung học phổ thông Mạc Đĩnh Chi,school,21.2261029,105.7614496,,missing,HOT OSM education facilities export (ODbL) via HDX
+10980030588,Trường Trung học phổ thông Nguyễn Huệ,school,21.0520846,105.7834064,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593179007,Trường Trung học cơ sở Đồng Quang,school,20.9763877,105.6570648,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593179008,Trường Trung học cơ sở Thạch Thán,school,20.9910059,105.6391405,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593179911,Trường Trung học cơ sở Ngọc Mỹ,school,20.9885853,105.6298325,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205904,Trường Trung học cơ sở Hiệp Thuận,school,21.0735103,105.6334193,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205909,Trường Trung học cơ sở Chàng Sơn,school,21.0382704,105.6013637,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593205912,Trường Trung học cơ sở Liên Hiệp,school,21.0572783,105.6394053,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285981,Trường Trung học cơ sở Quang Tiến,school,21.2384391,105.8062253,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593298201,Trường Trung học cơ sở Chu Phan,school,21.1729283,105.6515764,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334625,Trường Trung học cơ sở Hùng Tiến,school,20.6394354,105.7632809,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593334628,Trường Trung học cơ sở Duyên Thái,school,20.9000386,105.8656598,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593623730,Trường Trung học cơ sở Bích Hoà,school,20.9119634,105.7629655,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662296,Trường Trung học cơ sở Liệp Tuyết,school,20.9833028,105.6023776,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593853980,Trường Trung học cơ sở Vân Nam,school,21.1469054,105.5999459,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593853984,Trường Trung học cơ sở Lại Thượng,school,21.0707533,105.5580081,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593853985,Trường Trung học cơ sở Cần Kiệm,school,21.0164989,105.5817488,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862346,Trường Trung học cơ sở Hồng Minh,school,20.7922074,105.8300161,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862348,Trường Trung học cơ sở Đốc Tín,school,20.629107,105.7786677,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593887399,Trường Trung học cơ sở Mỹ Hưng,school,20.9013062,105.7989751,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593919772,Trường Trung học cơ sở Đội Bình,school,20.6485724,105.8178124,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593919775,Trường Trung học cơ sở Phượng Dực,school,20.7944843,105.8453197,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593919784,Trường Trung học cơ sở Văn Tự,school,20.7878245,105.8896448,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593926218,Trường Trung học cơ sở Đông Lỗ,school,20.6496959,105.8808937,,missing,HOT OSM education facilities export (ODbL) via HDX
+13071969304,Trường Trung học cơ sở Phạm Hồng Thái,school,21.1697307,105.6777138,,missing,HOT OSM education facilities export (ODbL) via HDX
+7893470217,Trường Tiểu học Chúc Sơn A,school,20.918029,105.7011389,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258943,Trường Trung học cơ sở Kim Quan,school,21.0482113,105.5764802,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381059,Trường Trung học cơ sở Liên Quan,school,21.0563149,105.576266,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381063,Trường Tiểu Học Văn Hoàng,school,20.7737131,105.8500953,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593515311,Trường Tiểu học Hoàng Diệu - Chương Mỹ,school,20.8612009,105.731516,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593258921,Trường Tiểu Học Mỹ Hưng,school,20.9018404,105.7988309,,missing,HOT OSM education facilities export (ODbL) via HDX
+5132779523,Đại Học Sư Phạm Thể Dục Thể Thao,college,20.9394689,105.7083802,,missing,HOT OSM education facilities export (ODbL) via HDX
+7409549825,Trường Tiểu học Phụng Châu,school,20.949577,105.7023699,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593381048,Trường Tiểu học Tiên Phương,school,20.9399567,105.6860081,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662297,Trường Tiểu Học Liệp Tuyết,school,20.9831586,105.6020987,,missing,HOT OSM education facilities export (ODbL) via HDX
+10845878391,Trường Mầm non Trung tâm Xã Nghiêm Xuyên,school,20.8039104,105.8581771,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593285978,Trường Tiểu Học Nam Triều,school,20.7481226,105.9323095,,missing,HOT OSM education facilities export (ODbL) via HDX
+6929580408,,,21.0619654,105.8322177,,missing,HOT OSM education facilities export (ODbL) via HDX
+7178800218,,school,21.1114502,105.876979,,missing,HOT OSM education facilities export (ODbL) via HDX
+2888528798,Phổ thông Dân tộc Nội trú Hà Nội,,21.1231107,105.3631412,,missing,HOT OSM education facilities export (ODbL) via HDX
+8736400744,Trung Tâm Anh Ngữ ATEN,school,20.9891069,105.8441413,,missing,HOT OSM education facilities export (ODbL) via HDX
+10817737098,Trường Mầm non Xã Tri Trung,school,20.7784646,105.8306731,,missing,HOT OSM education facilities export (ODbL) via HDX
+10817737099,Trường Tiểu học Tri Trung,school,20.7778978,105.8313195,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593975501,Trường mầm non Mỹ Thành,kindergarten,20.777841,105.7026375,,missing,HOT OSM education facilities export (ODbL) via HDX
+6184420093,Trường Mẫu giáo thôn Thế Trụ,kindergarten,20.9709659,105.6184057,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593862350,Trường Tiểu Học Viên Nội,school,20.7927299,105.7150278,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662300,Trường Tiểu Học Ngọc Mỹ,school,20.9933503,105.6285474,,missing,HOT OSM education facilities export (ODbL) via HDX
+6812118285,,kindergarten,21.1391376,105.846746,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593515314,Trường Trung Học Cơ Sở Phú Yên,school,20.6946744,105.8984543,,missing,HOT OSM education facilities export (ODbL) via HDX
+3750608361,,,21.1797624,105.6383215,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593958098,Trường Mầm Non Kim Chung,kindergarten,21.13222,105.7775309,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593919783,Trường Tiểu Học Mê Linh,school,21.1641666,105.7307719,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593213818,Trường Tiểu Học Liên Mạc B,school,21.1808212,105.6645148,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593264118,Trường Tiểu Học Hiền Ninh,school,21.247173,105.7893638,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593662286,Trường Tiểu Học Minh Trí,school,21.267398,105.7477398,,missing,HOT OSM education facilities export (ODbL) via HDX
+9894644804,Trường tiểu học Vân Côn,school,20.9958998,105.6733845,,missing,HOT OSM education facilities export (ODbL) via HDX
+9894642703,Trường trung học cơ sở Vân Côn,school,20.9918025,105.6791977,,missing,HOT OSM education facilities export (ODbL) via HDX
+12135138931,Trường Tiểu học Bích Hoà,school,20.9142306,105.7675581,,missing,HOT OSM education facilities export (ODbL) via HDX
+12109655159,Trường Tiểu học Phúc Hòa,school,21.1098618,105.5545,,missing,HOT OSM education facilities export (ODbL) via HDX
+12535613774,Trường Tiểu học Bùi Quang Mại,school,21.1265081,105.7466133,,missing,HOT OSM education facilities export (ODbL) via HDX
+13401656240,Trường Cao đẳng Dược Hà Nội,college,21.0230526,105.7385865,,missing,HOT OSM education facilities export (ODbL) via HDX
+13401656241,Trường Cao đẳng Kỹ thuật Y dược Hà Nội,college,21.0254025,105.7383481,,missing,HOT OSM education facilities export (ODbL) via HDX
+13430306194,Trung tâm Giáo dục Quốc phòng và An ninh,school,20.9999851,105.5188703,,missing,HOT OSM education facilities export (ODbL) via HDX
+12843437700,Trường Mầm non Lại Thượng,kindergarten,21.0702286,105.5522597,,missing,HOT OSM education facilities export (ODbL) via HDX
+13435829588,Lớp mầm non độc lập Học Viện Xanh,kindergarten,20.9806435,105.8358728,,missing,HOT OSM education facilities export (ODbL) via HDX
+12069445484,Trường Trung cấp Cầu đường và Dạy nghề - Binh đoàn 12,college,20.9236804,105.7285857,,missing,HOT OSM education facilities export (ODbL) via HDX
+9593210627,Trường Tiểu học Ngọc Liệp,school,20.9957315,105.5956283,,missing,HOT OSM education facilities export (ODbL) via HDX
+13462222541,Trường Mầm non ME School,kindergarten,21.0300631,105.814532,,missing,HOT OSM education facilities export (ODbL) via HDX
+13505842601,Viet Duc Preschool,kindergarten,21.0564571,105.866706,,missing,HOT OSM education facilities export (ODbL) via HDX
+13520226069,Trường THPT Ngô Gia Tự,school,20.9648587,105.7915908,,missing,HOT OSM education facilities export (ODbL) via HDX

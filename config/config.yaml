@@ -1,0 +1,108 @@
+# Central configuration for the Hanoi Optimal Transport data pipeline.
+# All paths are relative to the repository root. No absolute local paths.
+
+project:
+  name: hanoi-ot
+  study_area: "Hanoi, Vietnam"
+  # Name variants used to match Hanoi in administrative datasets.
+  # Do NOT add variants without verifying them against the actual data.
+  # Matching is space-insensitive (GADM uses "HàNội", COD-AB "Hà Nội").
+  hanoi_name_variants: ["Hà Nội", "Ha Noi", "Hanoi", "HANOI", "HàNội"]
+  # Admin level used as population origin unit:
+  #   level 2 = district (quận/huyện), level 3 = commune (phường/xã/commune)
+  origin_admin_level: 3
+
+crs:
+  # Working CRS for all vector outputs (WGS84 lat/lon).
+  working: "EPSG:4326"
+  # Projected CRS for area/centroid computations (UTM zone 48N, meters).
+  projected: "EPSG:32648"
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  outputs:
+    # Case 1 (vaccination) outputs live in case1/, Case 2 (schools) in case2/.
+    # boundaries is shared by both cases (stays at processed/ root).
+    boundaries: hanoi_boundaries.geojson
+    population: case1/population.csv
+    facilities: case1/facilities.csv
+    distance_matrix: case1/distance_matrix.csv
+    metadata: case1/dataset_metadata.json
+
+sources:
+  # Verified accessible 2026-10-08 via HDX CKAN API (see docs/data_sources.md).
+  admin_boundaries:
+    # 2025 COD-AB only has admin0+admin1 (34 provinces, post-merger) — NO
+    # commune level. GADM 4.1 level-3 (2022 vintage, pre-merger) provides
+    # communes and matches the 2020 population raster era. See docs/assumptions.md.
+    dataset: gadm41_VNM_3
+    provider: "GADM 4.1 (UC Davis)"
+    license: "Academic use only (GADM terms)"
+    url: "https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_VNM_3.json.zip"
+    file: gadm41_VNM_3.json.zip
+    schema: gadm41
+    columns:
+      province_name: NAME_1
+      district_name: NAME_2
+      commune_name: NAME_3
+      commune_id: GID_3
+  admin_boundaries_codab:
+    # OCHA COD-AB 2025 vintage — province level only (34 provinces).
+    dataset: cod-ab-vnm
+    provider: "OCHA (HDX)"
+    license: "CC-BY-IGO"
+    url: "https://data.humdata.org/dataset/3cb544a9-9d04-4f54-94e2-93230efd8ceb/resource/048a6012-a8c2-4fa9-be87-cb6c01e9afbf/download/vnm_admin_boundaries.geojson.zip"
+    file: vnm_admin_boundaries.geojson.zip
+  health_facilities:
+    dataset: hotosm_vnm_health_facilities
+    provider: "HOT (HDX)"
+    license: "ODbL 1.0 (HDX-ODC-ODbL)"
+    url: "https://s3.dualstack.us-east-1.amazonaws.com/production-raw-data-api/ISO3/VNM/health_facilities/points/hotosm_vnm_health_facilities_points_geojson.zip"
+    file: hotosm_vnm_health_facilities_points_geojson.zip
+  education_facilities:
+    dataset: hotosm_vnm_education_facilities
+    provider: "HOT (HDX)"
+    license: "ODbL 1.0 (HDX-ODC-ODbL)"
+    url: "https://s3.dualstack.us-east-1.amazonaws.com/production-raw-data-api/ISO3/VNM/education_facilities/points/hotosm_vnm_education_facilities_points_geojson.zip"
+    file: hotosm_vnm_education_facilities_points_geojson.zip
+  population_5_14:
+    dataset: worldpop-age-sex-structures-vietnam-2020
+    provider: "WorldPop"
+    license: "WorldPop open data terms; cite WorldPop [19]"
+    base_url: "https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020/2020/VNM"
+    year: 2020
+    resolution: "approximately 100 m"
+    files: [vnm_f_5_2020.tif, vnm_f_10_2020.tif, vnm_m_5_2020.tif, vnm_m_10_2020.tif]
+  population_under5:
+    dataset: vietnam-high-resolution-population-density-maps-demographic-estimates
+    provider: "Meta AI for Good (via HDX)"
+    license: "CC-BY 4.0"
+    url: "https://data.humdata.org/dataset/191b04c5-3dc7-4c2a-8e00-9c0bdfdfbf9d/resource/a2ca47a3-b7d7-4a39-a605-161d4790c6f9/download/vnm_children_under_five_2020_geotiff.zip"
+    file: vnm_children_under_five_2020_geotiff.zip
+    year: 2020
+    # NOTE: WorldPop (https://data.worldpop.org/...) is the alternative
+    # population source but was unreachable from our network on 2026-10-08.
+    # See docs/data_sources.md.
+
+population:
+  # Meta HRSL under-5 raster: values are estimated counts per ~30m pixel.
+  unit: "estimated children count per pixel"
+  year: 2020
+  nodata_handling: "treat as 0 population, count affected pixels"
+
+facilities:
+  # Capacity is NEVER invented. Real capacities require a verified source
+  # (e.g. MoH records). Synthetic capacities are for tests only.
+  synthetic_capacity:
+    enabled: false  # must be enabled explicitly, never by default
+    default_value: 1000
+
+distance:
+  method: haversine  # geographic baseline, NOT road distance
+  unit: km
+  earth_radius_km: 6371.0088  # IUGG mean radius
+
+validation:
+  max_haversine_distance_km: 300  # sanity bound for within-Vietnam distances
