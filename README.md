@@ -10,6 +10,26 @@ A small, reusable data package for allocating children to vaccination facilities
 
 > Population values are estimates. Facility capacities are unavailable. The demo uses synthetic equal capacities and is not an official result.
 
+## CSV file guide
+
+All distances are in **kilometres**. IDs connect files: `commune_id` identifies a commune and `facility_id` identifies a facility.
+
+| File | Purpose | Main fields / use |
+|---|---|---|
+| `data/processed/case1/population.csv` | Case 1 demand: one row per commune with the estimated number of children under 5. | Use `children_under_5` as demand. The centroid columns provide origin coordinates. |
+| `data/processed/case1/facilities.csv` | Candidate health facilities for Case 1. | Contains names, types, and coordinates. `capacity` is empty because verified capacity is unavailable. |
+| `data/processed/case1/distance_matrix.csv` | Straight-line distance from every commune to every health facility. | Rows are communes and columns are facilities. Use as the baseline cost matrix. |
+| `data/processed/case1/road_distance_matrix.csv` | OSRM road distance from every commune centroid to every health facility. | Same layout as the straight-line matrix. Use when realistic car-road distances are preferred. |
+| `data/processed/case1/allocation_demo.csv` | Greedy example using synthetic equal facility capacities. | Contains commune–facility pairs, assigned children, and distance. It is not an official or optimal result. |
+| `data/processed/case2/scenario2_education_facilities.csv` | Candidate schools for Case 2. | Contains school names, types, and coordinates. `capacity` is empty because verified seat counts are unavailable. |
+
+Related non-CSV files:
+
+- `hanoi_boundaries.geojson`: commune boundaries shared by both cases.
+- `scenario2_sampled_children.geojson`: 10,000 reproducible sample locations for children aged 5–14.
+- `scenario2_population_5_14_hanoi.tif`: age 5–14 population-density raster clipped to Hanoi.
+- Metadata JSON files: sources, generation details, checksums, and limitations.
+
 ## Quick start
 
 Python 3.11+ is required.
