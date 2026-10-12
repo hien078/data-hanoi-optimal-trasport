@@ -115,23 +115,27 @@ OCHA boundaries --- \textbf{backup only}: the 2025 vintage has just 34 provinces
 
 \section{Processed outputs (handoff, \path{data/processed/})}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.5cm}>{\raggedright\arraybackslash}p{6.5cm}@{}}
+\begin{small}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{8.2cm}>{\raggedright\arraybackslash}p{6.2cm}@{}}
 \toprule
 \textbf{File} & \textbf{Built from} \\
 \midrule
-\path{case1/population.csv} & \#3 aggregated by \#1 \\
-\path{case1/facilities.csv} & \#5 \\
-\path{case1/distance_matrix.csv} & Haversine, centroids \#1 $\to$ \#5 \\
-\path{case1/road_distance_matrix.csv} & \#7 via OSRM \\
-\path{case2/scenario2_population_5_14_hanoi.tif} & \#4 + \#1 \\
-\path{case2/scenario2_sampled_children.geojson} & \#4 (sampled per the brief) \\
-\path{case2/scenario2_education_facilities.csv} & \#6 \\
-\path{hanoi_boundaries.geojson} & \#1 \\
+\endfirsthead
+\toprule
+\textbf{File (continued)} & \textbf{Built from} \\
+\midrule
+\endhead
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case1/population.csv}{\path{case1/population.csv}} & \#3 aggregated by \#1 \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case1/facilities.csv}{\path{case1/facilities.csv}} & \#5 \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case1/distance_matrix.csv}{\path{case1/distance_matrix.csv}} & Haversine, centroids \#1 $\to$ \#5 \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case1/road_distance_matrix.csv}{\path{case1/road_distance_matrix.csv}} & \#7 via OSRM \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case2/scenario2_population_5_14_hanoi.tif}{\path{case2/scenario2_population_5_14_hanoi.tif}} & \#4 + \#1 \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case2/scenario2_sampled_children.geojson}{\path{case2/scenario2_sampled_children.geojson}} & \#4 (sampled per the brief) \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/case2/scenario2_education_facilities.csv}{\path{case2/scenario2_education_facilities.csv}} & \#6 \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/hanoi_boundaries.geojson}{\path{hanoi_boundaries.geojson}} & \#1 \\
 \bottomrule
-\end{tabular}
-\end{table}
+\end{longtable}
+\end{small}
 
 \section{Where to find details}
 
