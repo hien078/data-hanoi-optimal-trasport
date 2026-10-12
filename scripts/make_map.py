@@ -84,14 +84,14 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     """Run the demo: assignment + map. Returns exit code."""
     pop = pd.read_csv(PROCESSED / "case1" / "population.csv")
     fac = pd.read_csv(PROCESSED / "case1" / "facilities.csv")
-    fac["facility_name"] = fac["facility_name"].fillna("Cơ sở chưa có tên").map(lambda v: escape(str(v)))
+    fac["facility_name"] = fac["facility_name"].fillna("Unnamed facility").map(lambda v: escape(str(v)))
     D = pd.read_csv(PROCESSED / "case1" / "distance_matrix.csv", index_col="commune_id") if osrm_url is None else None
     bnd = gpd.read_file(PROCESSED / "hanoi_boundaries.geojson")
     road = osrm_url is not None
     if road:
         from hanoi_ot.road_routes import build_road_distance_matrix, route_coordinates
         D = build_road_distance_matrix(pop, fac, osrm_url)
-    distance_label = "đường bộ OSRM (ô tô; chưa kiểm chứng xe máy)" if road else "đường chim bay"
+    distance_label = "OSRM road distance (car profile; not validated for motorcycles)" if road else "straight-line distance"
 
     x = pop.set_index("commune_id")["children_under_5"]
     # SYNTHETIC balanced capacities: equal split of total children.
@@ -142,7 +142,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     folium.TileLayer(
         tiles="https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        name="Nền bản đồ OpenStreetMap",
+        name="OpenStreetMap base map",
         max_zoom=19,
     ).add_to(m)
     m.fit_bounds(hanoi_bounds, padding=(12, 12))
@@ -151,10 +151,10 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
 
     # Independent overlays let users filter each information class.
     population_layer = folium.FeatureGroup(
-        name="Map 1 · Dân số trẻ dưới 5 tuổi (2020)", show=True
+        name="Map 1 · Population under age 5 (2020)", show=True
     ).add_to(m)
     centroid_layer = folium.FeatureGroup(
-        name="Map 1 · Tâm xã/phường", show=False
+        name="Map 1 · Commune centroids", show=False
     ).add_to(m)
 
     # Choropleth: under-5 population per commune.
@@ -173,7 +173,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     ch.geojson.add_child(
         folium.GeoJsonTooltip(
             ["commune_name", "children_under_5", "primary_facility"],
-            aliases=["Xã/phường", "Trẻ dưới 5 tuổi (ước tính)", "Cơ sở chính (mô phỏng)"],
+            aliases=["Commune", "Estimated children under 5", "Primary facility (simulation)"],
             localize=True,
             sticky=False,
         )
@@ -184,15 +184,15 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         folium.CircleMarker(
             [r.centroid_lat, r.centroid_lon], radius=2, weight=1,
             color="#555", fill=True, fill_opacity=0.7,
-            tooltip=f"{r.commune_name}: {r.children_under_5:,.0f} trẻ dưới 5 tuổi",
+            tooltip=f"{r.commune_name}: {r.children_under_5:,.0f} children under 5",
         ).add_to(centroid_layer)
 
     route_layers = {}
     for is_primary in (True, False):
-        for band in ("Dưới 5 km", "5 đến dưới 10 km", "Từ 10 km"):
-            label = "chính" if is_primary else "phụ"
+        for band in ("Under 5 km", "5 to under 10 km", "10 km or more"):
+            label = "primary" if is_primary else "secondary"
             route_layers[is_primary, band] = folium.FeatureGroup(
-                name=f"Map 1 · Tuyến {label} · {band} ({distance_label})", show=False
+                name=f"Map 1 · Route {label} · {band} ({distance_label})", show=False
             ).add_to(m)
 
     # Assignment lines: commune centroid -> facility.
@@ -200,25 +200,25 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     fac_xy = fac_gdf.set_index("facility_id")[["latitude", "longitude"]]
     for r in alloc.itertuples(index=False):
         is_primary = primary.get(r.commune_id) == r.facility_id
-        band = "Dưới 5 km" if r.distance_km < 5 else "5 đến dưới 10 km" if r.distance_km < 10 else "Từ 10 km"
+        band = "Under 5 km" if r.distance_km < 5 else "5 to under 10 km" if r.distance_km < 10 else "10 km or more"
         c = pts.loc[r.commune_id]
         f = fac_xy.loc[r.facility_id]
         folium.PolyLine(
             routes[r.commune_id, r.facility_id] if road else [[c.centroid_lat, c.centroid_lon], [f.latitude, f.longitude]],
             weight=1.5, color="#3182bd" if is_primary else "#ac5316", opacity=0.6,
-            tooltip=f"{r.commune_id} → {r.facility_id}: {r.children_assigned:,.0f} trẻ; {r.distance_km:.1f} km ({distance_label})",
+            tooltip=f"{r.commune_id} → {r.facility_id}: {r.children_assigned:,.0f} children; {r.distance_km:.1f} km ({distance_label})",
         ).add_to(route_layers[is_primary, band])
 
     # One switch per facility type: practical filtering without custom JS.
     facility_layers = {}
-    for facility_type in sorted(fac_gdf["facility_type"].fillna("Không rõ").unique()):
+    for facility_type in sorted(fac_gdf["facility_type"].fillna("Unknown").unique()):
         facility_layers[facility_type] = folium.FeatureGroup(
-            name=f"Map 1 · Cơ sở — {facility_type}", show=True
+            name=f"Map 1 · Facility — {facility_type}", show=True
         ).add_to(m)
 
     # Facility markers, sized by assigned demo load.
     for r in fac_gdf.itertuples(index=False):
-        facility_type = r.facility_type if pd.notna(r.facility_type) else "Không rõ"
+        facility_type = r.facility_type if pd.notna(r.facility_type) else "Unknown"
         folium.CircleMarker(
             [r.latitude, r.longitude],
             radius=3 + 6 * (r.assigned_load / max(fac_gdf["assigned_load"].max(), 1)),
@@ -226,7 +226,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
             popup=folium.Popup(
                 f"<b>{r.facility_name}</b><br>Loại: {facility_type}"
                 f"<br>Mã OSM: {r.facility_id}"
-                f"<br>Tải phân bổ mô phỏng: {r.assigned_load:,.0f} trẻ"
+                f"<br>Simulated assigned load: {r.assigned_load:,.0f} trẻ"
                 "<br><i>Công suất giả lập — không phải số liệu thực tế</i>"
             ),
             tooltip=f"{r.facility_name} ({facility_type})",
@@ -234,10 +234,10 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
 
     # --- Map 2 (Case 2): sampled children 5-14 + schools, same HTML file. ---
     children_layer = folium.FeatureGroup(
-        name="Map 2 · Điểm trẻ 5–14 tuổi (mẫu 10.000, WorldPop 2020)", show=False
+        name="Map 2 · Children aged 5–14 (10,000-point sample, WorldPop 2020)", show=False
     ).add_to(m)
     school_layer = folium.FeatureGroup(
-        name="Map 2 · Trường học (332, OSM)", show=False
+        name="Map 2 · Schools (332, OSM)", show=False
     ).add_to(m)
     children_path = PROCESSED / "case2" / "scenario2_sampled_children.geojson"
     schools_path = PROCESSED / "case2" / "scenario2_education_facilities.csv"
@@ -245,7 +245,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         folium.GeoJson(
             json.dumps(json.load(open(children_path, encoding="utf-8"))),
             marker=folium.CircleMarker(radius=1.5, color="#7a0177", fill=True, fill_opacity=0.6, weight=0.5),
-            tooltip="Điểm trẻ lấy mẫu (Monte Carlo, không phải trẻ thật)",
+            tooltip="Sampled child location (Monte Carlo estimate, not an observed child)",
         ).add_to(children_layer)
     if schools_path.exists():
         schools = pd.read_csv(schools_path)
@@ -253,14 +253,14 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
             folium.CircleMarker(
                 [r.latitude, r.longitude], radius=3, color="#238b45",
                 fill=True, fill_opacity=0.8, weight=1,
-                tooltip=f"{r.facility_name or 'Trường chưa có tên'} ({r.facility_type})",
+                tooltip=f"{r.facility_name or 'Unnamed school'} ({r.facility_type})",
             ).add_to(school_layer)
 
     folium.LayerControl(collapsed=False, position="topright").add_to(m)
     title = (
-        "HÀ NỘI — Map 1: phân bổ trẻ dưới 5 tuổi đến cơ sở y tế; Map 2: điểm trẻ 5–14 tuổi và trường học. "
-        f"Dân số: Meta HRSL/WorldPop 2020; ranh giới: GADM 2022; cơ sở: OpenStreetMap; khoảng cách: {distance_label}. "
-        "Phân bổ greedy và công suất chia đều là giả lập, không phải kết quả OT. Chưa xác minh dịch vụ tiêm chủng."
+        "HÀ NỘI — Map 1: phân bổ children under 5 đến cơ sở y tế; Map 2: điểm trẻ 5–14 tuổi và trường học. "
+        f"Population: Meta HRSL/WorldPop 2020; boundaries: GADM 2022; facilities: OpenStreetMap; distance: {distance_label}. "
+        "The greedy allocation and equal capacities are synthetic, not official OT results. Vaccination services have not been verified."
     )
     m.get_root().html.add_child(
         folium.Element(
@@ -275,17 +275,17 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     <div style="position:fixed;left:10px;bottom:25px;z-index:9999;width:285px;
       background:rgba(255,255,255,.95);padding:10px 12px;border-radius:5px;
       box-shadow:0 1px 6px #777;font:12px/1.45 sans-serif">
-      <b>Cách lọc lớp</b><br>
-      1. Dùng bảng lớp góc trên phải.<br>
-      2. <b>Map 1</b> (tiêm chủng): bật lớp dân số, lọc tuyến theo khoảng cách, bật/tắt từng loại cơ sở.<br>
-      3. <b>Map 2</b> (trường học): bật lớp điểm trẻ 5–14 và lớp trường học.<br>
-      4. Bật tâm xã/phường khi cần kiểm tra điểm xuất phát.<br>
-      Di chuột để xem nhanh; nhấp cơ sở để xem tải mô phỏng.
+      <b>How to filter layers</b><br>
+      1. Use the layer panel in the top-right corner.<br>
+      2. <b>Map 1</b> (vaccination): enable population, filter routes by distance, and toggle facility types.<br>
+      3. <b>Map 2</b> (schools): enable sampled children aged 5–14 and schools.<br>
+      4. Enable commune centroids to inspect route origins.<br>
+      Hover for details; click a facility to view its simulated load.
     </div>
     """
     m.get_root().html.add_child(folium.Element(guide))
 
-    m.get_root().header.add_child(folium.Element("""<title>Hà Nội — Mô phỏng phân bổ</title><style>
+    m.get_root().header.add_child(folium.Element("""<title>Hanoi — Allocation simulation</title><style>
     .leaflet-control-layers {max-height:65vh;overflow:auto;max-width:310px}
     .leaflet-control-layers label {padding:3px 0}
     :focus-visible {outline:3px solid #b75e14}
@@ -293,7 +293,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     </style>"""))
     out_html = PROCESSED / "case1" / "allocation_map.html"
     # Render fully in memory: never truncate the visible map if rendering fails.
-    html = m.get_root().render().replace("<html>", '<html lang="vi">')
+    html = m.get_root().render().replace("<html>", '<html lang="en">')
     if len(html) < 100_000 or "</html>" not in html:
         raise RuntimeError("Generated map HTML is incomplete")
     tmp_html = out_html.with_suffix(".html.tmp")
