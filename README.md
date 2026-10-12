@@ -15,7 +15,7 @@ A small, reusable data package for allocating children to vaccination facilities
 Python 3.11+ is required.
 
 ~~~bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/seuldz2005/data-hanoi-optimal-trasport.git
 cd data-hanoi-optimal-trasport
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
@@ -85,7 +85,7 @@ python scripts/run_benchmarks.py --synthetic-uniform-capacity
 2. Open **Settings → Pages**.
 3. Choose **Deploy from a branch**.
 4. Select `main` and `/docs`, then click **Save**.
-5. Open `https://<YOUR_GITHUB_USERNAME>.github.io/<REPOSITORY_NAME>/`.
+5. Open `https://seuldz2005.github.io/data-hanoi-optimal-trasport/`.
 
 The map uses online OpenStreetMap tiles, so viewers need internet access.
 
