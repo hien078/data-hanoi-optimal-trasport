@@ -1,0 +1,145 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xurl} % allow \url to break anywhere
+\geometry{margin=2cm}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\emergencystretch}{3em}
+
+\title{Data Catalog: Collected Sources\\ \large Data-Driven Optimal Transport for Allocating Children to Vaccination Sites and Schools in Hanoi}
+\author{Thien --- Data Team}
+\date{October 9, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Public GitHub data repository}
+
+The processed datasets, reproducible Python scripts, documentation, and interactive map are hosted publicly on GitHub:
+
+\begin{itemize}
+  \item \textbf{Repository:} \url{https://github.com/seuldz2005/data-hanoi-optimal-trasport}
+  \item \textbf{Interactive map:} \url{https://seuldz2005.github.io/data-hanoi-optimal-trasport/}
+  \item \textbf{Processed data:} \url{https://github.com/seuldz2005/data-hanoi-optimal-trasport/tree/main/data/processed}
+  \item \textbf{Processing scripts:} \url{https://github.com/seuldz2005/data-hanoi-optimal-trasport/tree/main/scripts}
+\end{itemize}
+
+For presentation and reuse, the public files are organized by study case:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{10.5cm}@{}}
+\toprule
+\textbf{GitHub location} & \textbf{Contents} \\
+\midrule
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/tree/main/data/processed/case1}{\path{data/processed/case1/}} & Case 1: commune population, health facilities, Haversine and road-distance matrices, demonstration allocation, and metadata. \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/tree/main/data/processed/case2}{\path{data/processed/case2/}} & Case 2: population raster, sampled child locations, education facilities, and metadata. \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/data/processed/hanoi_boundaries.geojson}{\path{data/processed/hanoi_boundaries.geojson}} & Shared boundaries for Hanoi's 584 communes. \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/blob/main/README.md}{\path{README.md}} & Run instructions and a guide to every processed data file. \\
+\href{https://github.com/seuldz2005/data-hanoi-optimal-trasport/tree/main/src/hanoi_ot}{\path{src/hanoi_ot/}} & Reusable Python processing modules. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The original raw downloads (approximately 17~GB) are not stored on GitHub because of file-size limits. They can be reproduced from the source URLs in this catalog by running the repository scripts. The smaller processed outputs required by the modelling team are stored directly on GitHub.
+
+\section{Key figures at a glance}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} \\
+\midrule
+Communes (wards + communes) of Hanoi & 584 \\
+Children under five (Case 1, Meta HRSL 2020) & 720{,}724 \\
+Children aged 5--14 on the Hanoi grid (Case 2, WorldPop 2020) & $\approx$1{,}041{,}000 \\
+Sampled child points for Case 2 (seed 42) & 10{,}000 \\
+Health facilities (Case 1 destinations) & 320 \\
+Schools (Case 2 destinations) & 332 \\
+Distance matrices (Haversine and road) & $584 \times 320$, 0--108~km, no missing values \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Raw data downloaded (7 sources, $\approx$17~GB)}
+
+\begin{small}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
+\toprule
+\textbf{File downloaded} & \textbf{Source URL} & \textbf{Purpose} \\
+\midrule
+\endhead
+
+\path{gadm41_VNM_3.json} (40~MB) &
+\url{https://geodata.ucdavis.edu/gadm/gadm/gadm4.1/json/gadm41_VNM_3.json.zip} &
+\textbf{Boundaries of 584 Hanoi communes} (GADM 4.1, 2022). Origin units for Case 1 and the containing region for Case 2. Filtered from 11{,}163 communes nationwide. \\
+\addlinespace
+
+\path{vnm_admin_boundaries.geojson} (165~MB) &
+\url{https://data.humdata.org/dataset/cod-ab-vnm} &
+OCHA boundaries --- \textbf{backup only}: the 2025 vintage has just 34 provinces, no commune level. \\
+\addlinespace
+
+\path{vnm_children_under_five_2020.tif} (12~GB) &
+\url{https://data.humdata.org/dataset/vietnam-high-resolution-population-density-maps-demographic-estimates} &
+\textbf{$x_i$ for Case 1}: $\sim$30~m raster, each pixel = estimated count of children under five (Meta HRSL 2020). Aggregated per commune $\to$ \path{population.csv}. \\
+\addlinespace
+
+\path{vnm_{f,m}_{5,10}_2020.tif} $\times$ 4 (657~MB) &
+\url{https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020/2020/VNM/} &
+\textbf{$x(s)$ for Case 2}: density of children aged 5--14 on a 100~m grid (female 5--9, female 10--14, male 5--9, male 10--14). Merged 4 files $\to$ Hanoi raster + 10{,}000 sampled child points. \\
+\addlinespace
+
+\path{hotosm_vnm_health_facilities_points_geojson.geojson} (1.6~MB) &
+\url{https://data.humdata.org/dataset/hotosm_vnm_health_facilities} &
+\textbf{Destinations for Case 1}: 320 health facilities (hospitals, clinics, health stations) from OSM. No capacity data. \\
+\addlinespace
+
+\path{hotosm_vnm_education_facilities_points_geojson.geojson} (824~KB) &
+\url{https://data.humdata.org/dataset/hotosm_vnm_education_facilities} &
+\textbf{Destinations for Case 2}: 332 schools from OSM. No capacity data. \\
+\addlinespace
+
+\path{vietnam-latest.osm.pbf} (4~GB) &
+\url{https://download.geofabrik.de/asia/vietnam.html} &
+\textbf{Road network} for all of Vietnam $\to$ local OSRM server $\to$ \path{road_distance_matrix.csv} ($584\times320$, real road distances). \\
+\bottomrule
+\end{longtable}
+\end{small}
+
+\section{Processed outputs (handoff, \path{data/processed/})}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.5cm}>{\raggedright\arraybackslash}p{6.5cm}@{}}
+\toprule
+\textbf{File} & \textbf{Built from} \\
+\midrule
+\path{case1/population.csv} & \#3 aggregated by \#1 \\
+\path{case1/facilities.csv} & \#5 \\
+\path{case1/distance_matrix.csv} & Haversine, centroids \#1 $\to$ \#5 \\
+\path{case1/road_distance_matrix.csv} & \#7 via OSRM \\
+\path{case2/scenario2_population_5_14_hanoi.tif} & \#4 + \#1 \\
+\path{case2/scenario2_sampled_children.geojson} & \#4 (sampled per the brief) \\
+\path{case2/scenario2_education_facilities.csv} & \#6 \\
+\path{hanoi_boundaries.geojson} & \#1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Where to find details}
+
+Verification date per source, licenses, and SHA-256 hashes (reproducible):
+\begin{itemize}
+  \item \path{docs/data_sources.md}
+  \item \path{data/processed/case1/dataset_metadata.json}
+  \item \path{data/processed/case2/scenario2_metadata.json}
+\end{itemize}
+
+\end{document}
