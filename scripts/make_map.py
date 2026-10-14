@@ -150,11 +150,12 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     m.options["maxBoundsViscosity"] = 1.0
 
     # Independent overlays let users filter each information class.
+    # Use prefixes to group visually in the layer control
     population_layer = folium.FeatureGroup(
-        name="Map 1 · Population under age 5 (2020)", show=True
+        name="MAP-1: Population under age 5 (2020)", show=True
     ).add_to(m)
     centroid_layer = folium.FeatureGroup(
-        name="Map 1 · Commune centroids", show=False
+        name="MAP-1: Commune centroids", show=False
     ).add_to(m)
 
     # Choropleth: under-5 population per commune.
@@ -192,7 +193,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         for band in ("Under 5 km", "5 to under 10 km", "10 km or more"):
             label = "primary" if is_primary else "secondary"
             route_layers[is_primary, band] = folium.FeatureGroup(
-                name=f"Map 1 · Route {label} · {band} ({distance_label})", show=False
+                name=f"MAP-1: Route {label} · {band} ({distance_label})", show=False
             ).add_to(m)
 
     # Assignment lines: commune centroid -> facility.
@@ -213,7 +214,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     facility_layers = {}
     for facility_type in sorted(fac_gdf["facility_type"].fillna("Unknown").unique()):
         facility_layers[facility_type] = folium.FeatureGroup(
-            name=f"Map 1 · Facility — {facility_type}", show=True
+            name=f"MAP-1: Facility — {facility_type}", show=True
         ).add_to(m)
 
     # Facility markers, sized by assigned demo load.
@@ -234,10 +235,10 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
 
     # --- Map 2 (Case 2): sampled children 5-14 + schools, same HTML file. ---
     children_layer = folium.FeatureGroup(
-        name="Map 2 · Children aged 5–14 (10,000-point sample, WorldPop 2020)", show=False
+        name="MAP-2: Children aged 5–14 (10,000-point sample, WorldPop 2020)", show=False
     ).add_to(m)
     school_layer = folium.FeatureGroup(
-        name="Map 2 · Schools (332, OSM)", show=False
+        name="MAP-2: Schools (332, OSM)", show=False
     ).add_to(m)
     children_path = PROCESSED / "case2" / "scenario2_sampled_children.geojson"
     schools_path = PROCESSED / "case2" / "scenario2_education_facilities.csv"
