@@ -297,6 +297,8 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     html = m.get_root().render().replace("<html>", '<html lang="en">')
     if len(html) < 100_000 or "</html>" not in html:
         raise RuntimeError("Generated map HTML is incomplete")
+    group_script = (Path(__file__).parent / "assets" / "map_layer_groups.js").read_text(encoding="utf-8")
+    html = html.replace("</html>", "<script>\n" + group_script + "\n</script>\n</html>")
     tmp_html = out_html.with_suffix(".html.tmp")
     tmp_html.write_text(html, encoding="utf-8")
     tmp_html.replace(out_html)

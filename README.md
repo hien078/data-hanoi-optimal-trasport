@@ -18,6 +18,7 @@ All distances are in **kilometres**. IDs connect files: `commune_id` identifies 
 |---|---|---|
 | `data/processed/case1/population.csv` | Case 1 demand: one row per commune with the estimated number of children under 5. | Use `children_under_5` as demand. The centroid columns provide origin coordinates. |
 | `data/processed/case1/facilities.csv` | Candidate health facilities for Case 1. | Contains names, types, and coordinates. `capacity` is empty because verified capacity is unavailable. |
+| `data/processed/case1/sites_capacity.csv` | **Synthetic** equal capacities for Case 1 experiments only. | `facility_id`, `capacity`, `capacity_source=synthetic`, `capacity_unit`. Same facility order as the distance matrix; total equals estimated demand. Not verified vaccination throughput. |
 | `data/processed/case1/distance_matrix.csv` | Straight-line distance from every commune to every health facility. | Rows are communes and columns are facilities. Use as the baseline cost matrix. |
 | `data/processed/case1/road_distance_matrix.csv` | OSRM road distance from every commune centroid to every health facility. | Same layout as the straight-line matrix. Use when realistic car-road distances are preferred. |
 | `data/processed/case1/allocation_demo.csv` | Greedy example using synthetic equal facility capacities. | Contains commune–facility pairs, assigned children, and distance. It is not an official or optimal result. |
@@ -97,6 +98,29 @@ Real capacity is unavailable, so synthetic capacity must be explicitly enabled:
 
 ~~~bash
 python scripts/run_benchmarks.py --synthetic-uniform-capacity
+~~~
+
+### Export synthetic capacity CSV
+
+~~~bash
+python3 scripts/export_synthetic_capacity.py
+~~~
+
+The three Case 1 model inputs are `distance_matrix.csv` (or
+`road_distance_matrix.csv`), `population.csv` (`children_under_5`), and
+`sites_capacity.csv` (`capacity`). Join by IDs, not row numbers.
+
+Synthetic capacity divides total estimated demand equally among facilities, with
+a tiny rounding adjustment in the last row. Fractional values are modeled mass,
+not observed children, vaccine doses, or daily/monthly throughput. No time period
+is assumed. This is a balanced-allocation test scenario, not a real capacity
+estimate. `facilities.csv` and its missing verified capacities remain unchanged.
+Regenerate after changing population, facilities, or distance-matrix columns.
+
+To benchmark this explicit synthetic scenario:
+
+~~~bash
+python scripts/run_benchmarks.py data/processed/case1/population.csv data/processed/case1/sites_capacity.csv data/processed/case1/distance_matrix.csv
 ~~~
 
 ## Publish the map with GitHub Pages
