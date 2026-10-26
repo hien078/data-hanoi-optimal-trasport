@@ -80,17 +80,49 @@ python scripts/make_map.py --haversine
 
 Output: `data/processed/case1/allocation_map.html`.
 
-For road routes, Docker is required. In terminal 1:
+For road routes, a local OSRM server is required.
+
+#### Road routing setup (one-time per machine)
+
+`start_osrm.sh` pulls `ghcr.io/project-osrm/osrm-backend:v5.27.1`, downloads
+the Geofabrik Vietnam extract (~330 MB, git-ignored under `data/raw/osrm/`),
+then runs `osrm-extract` and `osrm-contract`. Expect ~30 minutes once,
+about 2 GB of disk, and roughly 7 GB peak RAM during extraction:
 
 ~~~bash
-bash scripts/start_osrm.sh
+bash scripts/start_osrm.sh   # terminal 1: preprocessing, then serves on 127.0.0.1:5000
 ~~~
 
-In terminal 2:
+The script ends in the foreground running `osrm-routed` (CH, car profile,
+localhost only); Ctrl+C stops it. Later sessions reuse the preprocessed files
+in `data/raw/osrm/`, so restarting the server is a single command:
+
+~~~bash
+docker run --rm -p 127.0.0.1:5000:5000 -v "$PWD/data/raw/osrm:/data:ro" \
+  ghcr.io/project-osrm/osrm-backend:v5.27.1 \
+  osrm-routed --algorithm ch --max-table-size 100 /data/vietnam.osrm
+~~~
+
+Sanity-check the server before mapping (expect `"code":"Ok"`):
+
+~~~bash
+curl "http://127.0.0.1:5000/route/v1/driving/105.78,20.96;105.781,20.961?overview=false"
+~~~
+
+#### Build the road-distance map
+
+With the server running (terminal 2):
 
 ~~~bash
 python scripts/make_map.py
 ~~~
+
+Road mode re-queries OSRM, so it **rebuilds** `road_distance_matrix.csv`,
+`allocation_demo.csv`, and `allocation_map.html` (~3–5 minutes) and draws
+each allocation line along the actual driving route. The straight-line
+baseline stays available via `--haversine`; switch back by restoring the
+previous `git` revision. To publish via GitHub Pages, copy the new
+`allocation_map.html` over `docs/index.html` before committing.
 
 ### Run benchmark solvers
 
