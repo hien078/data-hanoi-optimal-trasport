@@ -6,7 +6,7 @@ A small, reusable data package for allocating children to vaccination facilities
 
 - **Case 1:** 584 communes, estimated children under 5, 320 health facilities, and distance matrices.
 - **Case 2:** a population raster for ages 5–14, 10,000 sample points, and 332 schools.
-- **Interactive map:** [docs/index.html](docs/index.html).
+- **Interactive maps:** [docs/index.html](docs/index.html) (road distance) and [docs/index_compare.html](docs/index_compare.html) (toggle between road and straight-line).
 
 > Population values are estimates. Facility capacities are unavailable. The demo uses synthetic equal capacities and is not an official result.
 
@@ -129,6 +129,26 @@ each allocation line along the actual driving route. The straight-line
 baseline stays available via `--haversine`; switch back by restoring the
 previous `git` revision. To publish via GitHub Pages, copy the new
 `allocation_map.html` over `docs/index.html` before committing.
+
+### Compare road vs straight-line maps
+
+`docs/index_compare.html` merges both maps into one page with a toggle
+(buttons at the bottom). Build it from the two folium exports:
+
+~~~bash
+python scripts/make_map.py --haversine
+cp data/processed/case1/allocation_map.html /tmp/haversine.html
+python scripts/make_map.py
+python scripts/build_compare_page.py \
+  --road data/processed/case1/allocation_map.html \
+  --haversine /tmp/haversine.html \
+  --out docs/index_compare.html
+~~~
+
+The script does text surgery on the two HTML exports (no re-rendering), so
+the published `docs/index.html` also works as the road input. Each map keeps
+its own layer-control handlers, and switching calls `invalidateSize()` so
+Leaflet re-measures the pane. Expect ~18 MB per build.
 
 ### Run benchmark solvers
 
