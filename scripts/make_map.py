@@ -30,7 +30,9 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+from hanoi_ot.capacity import load_site_capacities  # noqa: E402
 from hanoi_ot.config import REPO_ROOT, get_logger, output_path  # noqa: E402
+from hanoi_ot.map_style import capacity_radius  # noqa: E402
 
 log = get_logger("demo_map")
 
@@ -94,10 +96,15 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     distance_label = "OSRM road distance (car profile; not validated for motorcycles)" if road else "straight-line distance"
 
     x = pop.set_index("commune_id")["children_under_5"]
-    # SYNTHETIC balanced capacities: equal split of total children.
-    # Clearly labeled; never real data.
-    total = float(x.sum())
-    y = pd.Series(total / len(fac), index=fac["facility_id"].astype(str))
+    # Capacities come from sites_capacity.csv: integer, synthetic, labeled.
+    # Single source of truth — the export script owns the values, not this map.
+    fac["facility_id"] = fac["facility_id"].astype(str)
+    y = load_site_capacities(PROCESSED / "case1" / "sites_capacity.csv")
+    fac["capacity"] = fac["facility_id"].map(y)
+    if fac["capacity"].isna().any():
+        raise ValueError(
+            "sites_capacity.csv is missing capacity for facilities present in facilities.csv"
+        )
 
     alloc = greedy_assignment(x, D, y)
     # Fetch every allocated route before replacing any existing output.
@@ -118,7 +125,6 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         .drop_duplicates("commune_id")
         .set_index("commune_id")["facility_id"]
     )
-    fac["facility_id"] = fac["facility_id"].astype(str)
     fac["assigned_load"] = fac["facility_id"].map(load).fillna(0.0)
     pop["primary_facility"] = pop["commune_id"].map(primary)
 
@@ -222,11 +228,13 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         facility_type = r.facility_type if pd.notna(r.facility_type) else "Unknown"
         folium.CircleMarker(
             [r.latitude, r.longitude],
-            radius=3 + 6 * (r.assigned_load / max(fac_gdf["assigned_load"].max(), 1)),
+            # Area proportional to synthetic capacity (radius ~ sqrt); floor 3px.
+            radius=capacity_radius(r.capacity, fac_gdf["capacity"].max()),
             color="#08519c", fill=True, fill_opacity=0.8,
             popup=folium.Popup(
                 f"<b>{r.facility_name}</b><br>Loại: {facility_type}"
                 f"<br>Mã OSM: {r.facility_id}"
+                f"<br>Simulated capacity: {r.capacity:,.0f}"
                 f"<br>Simulated assigned load: {r.assigned_load:,.0f} trẻ"
                 "<br><i>Công suất giả lập — không phải số liệu thực tế</i>"
             ),

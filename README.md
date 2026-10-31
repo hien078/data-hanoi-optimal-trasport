@@ -18,7 +18,7 @@ All distances are in **kilometres**. IDs connect files: `commune_id` identifies 
 |---|---|---|
 | `data/processed/case1/population.csv` | Case 1 demand: one row per commune with the estimated number of children under 5. | Use `children_under_5` as demand. The centroid columns provide origin coordinates. |
 | `data/processed/case1/facilities.csv` | Candidate health facilities for Case 1. | Contains names, types, and coordinates. `capacity` is empty because verified capacity is unavailable. |
-| `data/processed/case1/sites_capacity.csv` | **Synthetic** equal capacities for Case 1 experiments only. | `facility_id`, `capacity`, `capacity_source=synthetic`, `capacity_unit`. Same facility order as the distance matrix; total equals estimated demand. Not verified vaccination throughput. |
+| `data/processed/case1/sites_capacity.csv` | **Synthetic** integer capacities for Case 1 experiments only. | `facility_id`, `capacity` (integer), `capacity_source=synthetic`, `capacity_unit`. Same facility order as the distance matrix; the integer total preserves estimated demand (2,252–2,253 per facility). Not verified vaccination throughput. |
 | `data/processed/case1/distance_matrix.csv` | Straight-line distance from every commune to every health facility. | Rows are communes and columns are facilities. Use as the baseline cost matrix. |
 | `data/processed/case1/road_distance_matrix.csv` | OSRM road distance from every commune centroid to every health facility. | Same layout as the straight-line matrix. Use when realistic car-road distances are preferred. |
 | `data/processed/case1/allocation_demo.csv` | Greedy example using synthetic equal facility capacities. | Contains commune–facility pairs, assigned children, and distance. It is not an official or optimal result. |
@@ -78,7 +78,11 @@ Using straight-line distances:
 python scripts/make_map.py --haversine
 ~~~
 
-Output: `data/processed/case1/allocation_map.html`.
+Output: `data/processed/case1/allocation_map.html`. Facility markers are
+sized by synthetic capacity (marker area ∝ capacity, radius `3+6√(cap/max)`);
+with the current equal capacities all markers are near-identical, and the
+sizing differentiates only once real or tiered capacities replace the
+synthetic ones. The map reads capacities from `sites_capacity.csv`.
 
 For road routes, a local OSRM server is required.
 
