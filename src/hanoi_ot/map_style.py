@@ -23,6 +23,30 @@ FACILITY_TYPE_COLORS: dict[str, str] = {
 }
 
 
+def facility_color(facility_type: str) -> str:
+    """Hex color for a facility type.
+
+    Args:
+        facility_type: One of the keys of ``FACILITY_TYPE_COLORS``
+            (``"Unknown"`` for missing OSM type tags).
+
+    Returns:
+        Hex color string.
+
+    Raises:
+        ValueError: If the type is not in the palette. A regenerated
+            ``facilities.csv`` may carry new OSM types; the fix is to
+            add the type to ``FACILITY_TYPE_COLORS``, so the error says so.
+    """
+    try:
+        return FACILITY_TYPE_COLORS[facility_type]
+    except KeyError:
+        raise ValueError(
+            f"unknown facility_type {facility_type!r}: "
+            "add it to hanoi_ot.map_style.FACILITY_TYPE_COLORS"
+        ) from None
+
+
 def capacity_radius(cap: float, max_cap: float) -> float:
     """Leaflet marker radius in pixels for a facility capacity.
 
@@ -34,7 +58,9 @@ def capacity_radius(cap: float, max_cap: float) -> float:
         max_cap: Largest capacity among facilities on this map.
 
     Returns:
-        Radius in pixels, between 3 and 9.
+        Radius in pixels: at least 3; exactly 9 when ``cap == max_cap``.
+        Values above ``max_cap`` grow past 9 — callers pass the true
+        column maximum, and capacities are validated non-negative.
     """
     if max_cap <= 0:
         return _MARKER_FLOOR_PX

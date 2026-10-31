@@ -2,7 +2,7 @@
 
 import pytest
 
-from hanoi_ot.map_style import capacity_radius, FACILITY_TYPE_COLORS
+from hanoi_ot.map_style import capacity_radius, facility_color, FACILITY_TYPE_COLORS
 
 
 def test_capacity_radius_endpoints():
@@ -32,3 +32,21 @@ def test_colors_valid_hex():
 
     for v in FACILITY_TYPE_COLORS.values():
         assert re.fullmatch(r"#[0-9a-f]{6}", v)
+
+
+def test_facility_color_known():
+    assert facility_color("hospital") == "#e41a1c"
+    assert facility_color("Unknown") == "#999999"
+
+
+def test_facility_color_unknown_raises_with_hint():
+    with pytest.raises(ValueError, match="FACILITY_TYPE_COLORS"):
+        facility_color("social_facility")
+
+
+def test_facility_color_covers_case1_data():
+    import pandas as pd
+
+    fac = pd.read_csv("data/processed/case1/facilities.csv", dtype=str)
+    for t in set(fac["facility_type"].fillna("Unknown")):
+        facility_color(t)  # must not raise for any type in the shipped data

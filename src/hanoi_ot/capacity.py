@@ -1,8 +1,10 @@
 """Integer synthetic capacity handling for Case 1.
 
-Capacities are whole children, never fractional people. Rounding must
-preserve the total (capacity sum == estimated demand sum) so the greedy
-demo allocation never strands children by an artifact of rounding.
+Capacities are whole children, never fractional people. The split keeps
+the capacity total equal to the *floor* of total estimated demand, so
+whole children are never stranded by rounding; only the fractional
+modeled mass below one child can go unassigned (at most ~1 per commune
+of modeled mass, in practice a rounding dust the demo log rounds away).
 """
 
 from __future__ import annotations
@@ -55,14 +57,17 @@ def load_site_capacities(csv_path: Path) -> pd.Series:
     missing = [c for c in _REQUIRED_COLUMNS if c not in frame.columns]
     if missing:
         raise ValueError(f"{csv_path}: missing columns {missing}")
-    if frame["capacity"].isna().any():
-        raise ValueError(f"{csv_path}: capacity has missing values")
-    if (frame["capacity"] < 0).any():
+    # Coerce first: non-numeric cells become NaN and hit the ValueError
+    # below instead of blowing up the comparisons with a TypeError.
+    capacity = pd.to_numeric(frame["capacity"], errors="coerce")
+    if capacity.isna().any():
+        raise ValueError(f"{csv_path}: capacity has missing or non-numeric values")
+    if (capacity < 0).any():
         raise ValueError(f"{csv_path}: capacity has negative values")
-    if not (frame["capacity"] % 1 == 0).all():
+    if not (capacity % 1 == 0).all():
         raise ValueError(f"{csv_path}: capacity must be integers, got fractions")
     if frame["facility_id"].duplicated().any():
         raise ValueError(f"{csv_path}: duplicated facility_id values")
-    series = frame["capacity"].astype("int64")
+    series = capacity.astype("int64")
     series.index = frame["facility_id"].astype(str)
     return series

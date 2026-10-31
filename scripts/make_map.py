@@ -3,7 +3,7 @@
 Runs a greedy capacity-constrained assignment (children -> facilities)
 using SYNTHETIC capacities (clearly labeled), then renders an interactive
 folium map: commune choropleth (under-5 population), facility markers
-(sized by assigned load), and assignment lines.
+(sized by synthetic capacity, colored per type), and assignment lines.
 
 This is a data-usability DEMO, not the research OT solver.
 Never present the synthetic capacities or this demo's allocation as real.
@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from hanoi_ot.capacity import load_site_capacities  # noqa: E402
 from hanoi_ot.config import REPO_ROOT, get_logger, output_path  # noqa: E402
-from hanoi_ot.map_style import capacity_radius, FACILITY_TYPE_COLORS  # noqa: E402
+from hanoi_ot.map_style import capacity_radius, facility_color, FACILITY_TYPE_COLORS  # noqa: E402
 
 log = get_logger("demo_map")
 
@@ -223,16 +223,15 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
             name=f"MAP-1: Facility — {facility_type}", show=True
         ).add_to(m)
 
-    # Facility markers, sized by assigned demo load.
-    # Facility markers, sized by synthetic demo load, colored by type.
+    # Facility markers: sized by synthetic capacity, colored by type.
     for r in fac_gdf.itertuples(index=False):
         facility_type = r.facility_type if pd.notna(r.facility_type) else "Unknown"
         folium.CircleMarker(
             [r.latitude, r.longitude],
             # Area proportional to synthetic capacity (radius ~ sqrt); floor 3px.
             radius=capacity_radius(r.capacity, fac_gdf["capacity"].max()),
-            color=FACILITY_TYPE_COLORS[facility_type],
-            fill=True, fill_color=FACILITY_TYPE_COLORS[facility_type], fill_opacity=0.8,
+            color=facility_color(facility_type),
+            fill=True, fill_color=facility_color(facility_type), fill_opacity=0.8,
             popup=folium.Popup(
                 f"<b>{r.facility_name}</b><br>Loại: {facility_type}"
                 f"<br>Mã OSM: {r.facility_id}"
@@ -320,7 +319,7 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     .leaflet-control-layers {max-height:65vh;overflow:auto;max-width:310px}
     .leaflet-control-layers label {padding:3px 0}
     :focus-visible {outline:3px solid #b75e14}
-    @media(max-width:700px){.facility-legend{display:none}
+    @media(max-width:700px){.facility-legend{display:none}}
     @media(max-width:700px) {h4 {left:10px!important;right:10px!important;font-size:11px!important} .leaflet-top {top:145px} .leaflet-control-layers {max-height:40vh;max-width:250px} body>div[style*="bottom:25px"] {display:none}}
     </style>"""))
     out_html = PROCESSED / "case1" / "allocation_map.html"
