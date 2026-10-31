@@ -96,6 +96,13 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     distance_label = "OSRM road distance (car profile; not validated for motorcycles)" if road else "straight-line distance"
 
     x = pop.set_index("commune_id")["children_under_5"]
+    # Whole children in, whole children out: the demo refuses fractional
+    # demand (regenerate + integerize via the export script).
+    if not (x % 1 == 0).all():
+        raise ValueError(
+            "population.csv has fractional children_under_5 — run "
+            "scripts/export_integer_population.py before building the map"
+        )
     # Capacities come from sites_capacity.csv: integer, synthetic, labeled.
     # Single source of truth — the export script owns the values, not this map.
     fac["facility_id"] = fac["facility_id"].astype(str)
@@ -107,6 +114,15 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         )
 
     alloc = greedy_assignment(x, D, y)
+    # Integer demand + integer capacity => the greedy takes whole floats.
+    # Keep them whole in the CSV (no "1836.0" churn); stay float if a
+    # fractional input ever slips through.
+    if not (alloc["children_assigned"] % 1 == 0).all():
+        raise ValueError(
+            "greedy assignment produced fractional children_assigned; "
+            "demand and capacity must both be whole children"
+        )
+    alloc["children_assigned"] = alloc["children_assigned"].astype("int64")
     # Fetch every allocated route before replacing any existing output.
     routes = {}
     if road:

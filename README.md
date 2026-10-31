@@ -82,9 +82,10 @@ Output: `data/processed/case1/allocation_map.html`. Facility markers are
 sized by synthetic capacity (marker area ∝ capacity, radius `3+6√(cap/max)`);
 with the current equal capacities all markers are near-identical, and the
 sizing differentiates only once real or tiered capacities replace the
-synthetic ones. The map reads capacities from `sites_capacity.csv`, and
-colors each facility by its six OSM types with an on-map legend of live
-counts.
+synthetic ones. The map reads whole-children demand from `population.csv`
+(`scripts/export_integer_population.py`, refuses fractions) and integer
+capacities from `sites_capacity.csv`, and colors each facility by its six
+OSM types with an on-map legend of live counts.
 
 For road routes, a local OSRM server is required.
 
@@ -183,6 +184,26 @@ To benchmark this explicit synthetic scenario:
 ~~~bash
 python scripts/run_benchmarks.py data/processed/case1/population.csv data/processed/case1/sites_capacity.csv data/processed/case1/distance_matrix.csv
 ~~~
+
+### Integerize the population demand
+
+`children_under_5` starts as fractional raster estimates (Meta HRSL pixel
+sums; the raw total is 720,720.35852 per `dataset_metadata.json`). The demo
+uses whole children, so rewrite the column once:
+
+~~~bash
+python3 scripts/export_integer_population.py
+~~~
+
+Largest remainder (`hanoi_ot.capacity.integerize_counts`): every commune
+keeps its floor, and the leftover whole children of the total go to the
+communes with the largest fractional part. The total becomes exactly
+720,720 — equal to the synthetic capacity total, so the greedy demo
+assigns every child and fills every slot, and `allocation_demo.csv`
+carries integer `children_assigned`. `make_map.py` refuses fractional
+demand and points here. Re-run this after `run_pipeline.py` regenerates
+fractional estimates. Case 2 keeps raw fractional raster cells (no
+per-commune demand CSV is committed for it).
 
 ## Publish the map with GitHub Pages
 
