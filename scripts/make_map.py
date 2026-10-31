@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from hanoi_ot.capacity import load_site_capacities  # noqa: E402
 from hanoi_ot.config import REPO_ROOT, get_logger, output_path  # noqa: E402
-from hanoi_ot.map_style import capacity_radius  # noqa: E402
+from hanoi_ot.map_style import capacity_radius, FACILITY_TYPE_COLORS  # noqa: E402
 
 log = get_logger("demo_map")
 
@@ -224,13 +224,15 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
         ).add_to(m)
 
     # Facility markers, sized by assigned demo load.
+    # Facility markers, sized by synthetic demo load, colored by type.
     for r in fac_gdf.itertuples(index=False):
         facility_type = r.facility_type if pd.notna(r.facility_type) else "Unknown"
         folium.CircleMarker(
             [r.latitude, r.longitude],
             # Area proportional to synthetic capacity (radius ~ sqrt); floor 3px.
             radius=capacity_radius(r.capacity, fac_gdf["capacity"].max()),
-            color="#08519c", fill=True, fill_opacity=0.8,
+            color=FACILITY_TYPE_COLORS[facility_type],
+            fill=True, fill_color=FACILITY_TYPE_COLORS[facility_type], fill_opacity=0.8,
             popup=folium.Popup(
                 f"<b>{r.facility_name}</b><br>Loại: {facility_type}"
                 f"<br>Mã OSM: {r.facility_id}"
@@ -294,10 +296,31 @@ def main(osrm_url: str | None = "http://127.0.0.1:5000") -> int:
     """
     m.get_root().html.add_child(folium.Element(guide))
 
+    # On-map legend: six facility types with live counts.
+    type_counts = fac_gdf["facility_type"].fillna("Unknown").value_counts()
+    legend_rows = "".join(
+        f"<div style='margin:3px 0'><span style='display:inline-block;width:11px;height:11px;"
+        f"border-radius:6px;background:{FACILITY_TYPE_COLORS[t]};vertical-align:-1px'></span> "
+        f"{t}: {int(type_counts.get(t, 0))}</div>"
+        for t in sorted(FACILITY_TYPE_COLORS)
+    )
+    legend = f"""
+    <div class="facility-legend" style="position:fixed;right:10px;bottom:60px;z-index:9999;width:205px;
+      background:rgba(255,255,255,.95);padding:10px 12px;border-radius:5px;
+      box-shadow:0 1px 6px #777;font:12px/1.45 sans-serif">
+      <b>Cơ sở y tế theo loại</b><br>
+      {legend_rows}
+      <div style="margin-top:6px;color:#555;font-size:11px">Loại theo OSM; chưa thẩm định
+      chức năng tiêm chủng.</div>
+    </div>
+    """
+    m.get_root().html.add_child(folium.Element(legend))
+
     m.get_root().header.add_child(folium.Element("""<title>Hanoi — Allocation simulation</title><style>
     .leaflet-control-layers {max-height:65vh;overflow:auto;max-width:310px}
     .leaflet-control-layers label {padding:3px 0}
     :focus-visible {outline:3px solid #b75e14}
+    @media(max-width:700px){.facility-legend{display:none}
     @media(max-width:700px) {h4 {left:10px!important;right:10px!important;font-size:11px!important} .leaflet-top {top:145px} .leaflet-control-layers {max-height:40vh;max-width:250px} body>div[style*="bottom:25px"] {display:none}}
     </style>"""))
     out_html = PROCESSED / "case1" / "allocation_map.html"

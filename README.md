@@ -82,7 +82,9 @@ Output: `data/processed/case1/allocation_map.html`. Facility markers are
 sized by synthetic capacity (marker area ∝ capacity, radius `3+6√(cap/max)`);
 with the current equal capacities all markers are near-identical, and the
 sizing differentiates only once real or tiered capacities replace the
-synthetic ones. The map reads capacities from `sites_capacity.csv`.
+synthetic ones. The map reads capacities from `sites_capacity.csv`, and
+colors each facility by its six OSM types with an on-map legend of live
+counts.
 
 For road routes, a local OSRM server is required.
 
