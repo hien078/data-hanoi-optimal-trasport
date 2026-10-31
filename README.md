@@ -148,9 +148,12 @@ The three Case 1 model inputs are `distance_matrix.csv` (or
 `road_distance_matrix.csv`), `population.csv` (`children_under_5`), and
 `sites_capacity.csv` (`capacity`). Join by IDs, not row numbers.
 
-Synthetic capacity divides total estimated demand equally among facilities, with
-a tiny rounding adjustment in the last row. Fractional values are modeled mass,
-not observed children, vaccine doses, or daily/monthly throughput. No time period
+Synthetic capacity splits the **floor** of total estimated demand across
+facilities as **integers** (largest-remainder split: every facility gets
+`total // n`, the first `total % n` facilities get one more), so capacities are
+whole children and their sum stays equal to the floored demand — no fractional
+mass left over from rounding. Capacities are still synthetic test values, not
+observed children, vaccine doses, or daily/monthly throughput. No time period
 is assumed. This is a balanced-allocation test scenario, not a real capacity
 estimate. `facilities.csv` and its missing verified capacities remain unchanged.
 Regenerate after changing population, facilities, or distance-matrix columns.
