@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Export explicitly synthetic Case 1 capacities; never modify real facility data."""
 import csv
+import sys
 from decimal import Decimal, localcontext
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from hanoi_ot.capacity import largest_remainder_split  # noqa: E402
 
 
 def main():
@@ -24,16 +29,18 @@ def main():
         if total <= 0:
             raise ValueError("Total demand must be positive")
         # ponytail: uniform test allocation only; replace with verified capacities for real use.
-        share = (total / len(ids)).quantize(Decimal("0.000000000001"))
-        capacities = [share] * (len(ids) - 1) + [total - share * (len(ids) - 1)]
-        assert all(value >= 0 for value in capacities) and sum(capacities) == total
+        # Whole children only: floor the total so capacity never exceeds demand,
+        # then split exactly (largest remainder) so the sum is preserved.
+        total_children = int(total)
+        capacities = largest_remainder_split(total_children, len(ids))
+        assert all(value >= 0 for value in capacities) and sum(capacities) == total_children
         output = root / "sites_capacity.csv"
         with output.open("w", newline="") as stream:
             writer = csv.writer(stream, lineterminator="\n")
             writer.writerow(["facility_id", "capacity", "capacity_source", "capacity_unit"])
             writer.writerows((fid, value, "synthetic", "children_equivalent_per_model_allocation")
                             for fid, value in zip(ids, capacities))
-        print(f"{output.name}: {len(ids)} synthetic capacities; total={total}")
+        print(f"{output.name}: {len(ids)} synthetic integer capacities; total={total_children}")
 
 
 if __name__ == "__main__":
