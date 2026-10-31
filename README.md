@@ -18,7 +18,7 @@ All distances are in **kilometres**. IDs connect files: `commune_id` identifies 
 |---|---|---|
 | `data/processed/case1/population.csv` | Case 1 demand: one row per commune with the estimated number of children under 5. | Use `children_under_5` as demand. The centroid columns provide origin coordinates. |
 | `data/processed/case1/facilities.csv` | Candidate health facilities for Case 1. | Contains names, types, and coordinates. `capacity` is empty because verified capacity is unavailable. |
-| `data/processed/case1/sites_capacity.csv` | **Synthetic** equal capacities for Case 1 experiments only. | `facility_id`, `capacity`, `capacity_source=synthetic`, `capacity_unit`. Same facility order as the distance matrix; total equals estimated demand. Not verified vaccination throughput. |
+| `data/processed/case1/sites_capacity.csv` | **Synthetic** integer capacities for Case 1 experiments only. | `facility_id`, `capacity` (integer), `capacity_source=synthetic`, `capacity_unit`. Same facility order as the distance matrix; the integer total preserves estimated demand (2,252–2,253 per facility). Not verified vaccination throughput. |
 | `data/processed/case1/distance_matrix.csv` | Straight-line distance from every commune to every health facility. | Rows are communes and columns are facilities. Use as the baseline cost matrix. |
 | `data/processed/case1/road_distance_matrix.csv` | OSRM road distance from every commune centroid to every health facility. | Same layout as the straight-line matrix. Use when realistic car-road distances are preferred. |
 | `data/processed/case1/allocation_demo.csv` | Greedy example using synthetic equal facility capacities. | Contains commune–facility pairs, assigned children, and distance. It is not an official or optimal result. |
@@ -78,7 +78,13 @@ Using straight-line distances:
 python scripts/make_map.py --haversine
 ~~~
 
-Output: `data/processed/case1/allocation_map.html`.
+Output: `data/processed/case1/allocation_map.html`. Facility markers are
+sized by synthetic capacity (marker area ∝ capacity, radius `3+6√(cap/max)`);
+with the current equal capacities all markers are near-identical, and the
+sizing differentiates only once real or tiered capacities replace the
+synthetic ones. The map reads capacities from `sites_capacity.csv`, and
+colors each facility by its six OSM types with an on-map legend of live
+counts.
 
 For road routes, a local OSRM server is required.
 
@@ -142,9 +148,12 @@ The three Case 1 model inputs are `distance_matrix.csv` (or
 `road_distance_matrix.csv`), `population.csv` (`children_under_5`), and
 `sites_capacity.csv` (`capacity`). Join by IDs, not row numbers.
 
-Synthetic capacity divides total estimated demand equally among facilities, with
-a tiny rounding adjustment in the last row. Fractional values are modeled mass,
-not observed children, vaccine doses, or daily/monthly throughput. No time period
+Synthetic capacity splits the **floor** of total estimated demand across
+facilities as **integers** (largest-remainder split: every facility gets
+`total // n`, the first `total % n` facilities get one more), so capacities are
+whole children and their sum stays equal to the floored demand — no fractional
+mass left over from rounding. Capacities are still synthetic test values, not
+observed children, vaccine doses, or daily/monthly throughput. No time period
 is assumed. This is a balanced-allocation test scenario, not a real capacity
 estimate. `facilities.csv` and its missing verified capacities remain unchanged.
 Regenerate after changing population, facilities, or distance-matrix columns.
